@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTI Consultant - Rwanda's Business Intelligence Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Data Visualization Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/100/ffffff?text=RTI" alt="RTI Consultant Logo" class="logo">
+                <h2>RTI Consultant</h2>
+            </div>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="#dashboard" class="nav-link"><i class="fas fa-chart-bar"></i> <span>Dashboard</span></a></li>
+                    <li><a href="#market-insights" class="nav-link"><i class="fas fa-chart-line"></i> <span>Market Insights</span></a></li>
+                    <li><a href="#regulatory-guidance" class="nav-link"><i class="fas fa-balance-scale"></i> <span>Regulatory Guidance</span></a></li>
+                    <li><a href="#faqs" class="nav-link"><i class="fas fa-question-circle"></i> <span>FAQs</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>&copy; 2023 RTI Consultant</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Home Page Section -->
+            <section id="home" class="page active">
+                <div class="hero-section">
+                    <div class="hero-content glass-morphism">
+                        <h1>Empowering Rwandan Businesses with Data-Driven Insights</h1>
+                        <p>RTI Consultant provides comprehensive business solutions for enterprises in Rwanda. Our expertise spans market analysis, regulatory compliance, and strategic growth planning.</p>
+                        <button id="get-started" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Business analytics illustration" class="animate-float">
+                    </div>
+                </div>
+                
+                <div class="features-section">
+                    <h2>How We Help Your Business Grow</h2>
+                    <div class="feature-cards">
+                        <div class="feature-card hover-3d">
+                            <div class="feature-icon animate-pulse">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h3>Market Analysis</h3>
+                            <p>Make data-driven decisions with our comprehensive market insights.</p>
+                        </div>
+                        <div class="feature-card hover-3d">
+                            <div class="feature-icon animate-pulse">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Regulatory Guidance</h3>
+                            <p>Navigate the complex regulatory landscape with ease.</p>
+                        </div>
+                        <div class="feature-card hover-3d">
+                            <div class="feature-icon animate-pulse">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Strategic Planning</h3>
+                            <p>Develop growth strategies tailored to the Rwandan market.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="page">
+                <h1>Rwanda Tech Ecosystem Dashboard</h1>
+                <p class="section-description">Real-time data and insights about Rwanda's growing technology sector, updated automatically as new data becomes available.</p>
+                
+                <!-- KPI Cards -->
+                <div class="dashboard-kpi-cards">
+                    <div class="kpi-card glass-morphism">
+                        <div class="kpi-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <h3>Tech Companies</h3>
+                            <p class="kpi-value" id="total-companies">25</p>
+                            <p class="kpi-trend up">+15% from last year</p>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card glass-morphism">
+                        <div class="kpi-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <h3>Total Employees</h3>
+                            <p class="kpi-value" id="total-employees">850</p>
+                            <p class="kpi-trend up">+22% from last year</p>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card glass-morphism">
+                        <div class="kpi-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <h3>Annual Revenue</h3>
+                            <p class="kpi-value" id="total-revenue">$15.5M</p>
+                            <p class="kpi-trend up">+30% from last year</p>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card glass-morphism">
+                        <div class="kpi-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <h3>Fastest Growing</h3>
+                            <p class="kpi-value" id="fastest-sector">FinTech</p>
+                            <p class="kpi-trend">45% growth rate</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Visualization Section -->
+                <div class="visualization-section">
+                    <!-- Industry Revenue Comparison Chart -->
+                    <div class="chart-container glass-morphism">
+                        <h3>Revenue by Industry Sector</h3>
+                        <div class="chart-wrapper" id="industry-revenue-chart">
+                            <canvas id="industry-revenue-canvas"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Market Share Distribution -->
+                    <div class="chart-container glass-morphism">
+                        <h3>Market Share Distribution</h3>
+                        <div class="chart-wrapper" id="market-share-chart">
+                            <canvas id="market-share-canvas"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Startup Growth Trends -->
+                    <div class="chart-container glass-morphism">
+                        <h3>Startup Growth Trends (2018-2023)</h3>
+                        <div class="chart-wrapper" id="startup-growth-chart">
+                            <canvas id="startup-growth-canvas"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Top Performing Companies -->
+                    <div class="chart-container glass-morphism">
+                        <h3>Top Performing Companies</h3>
+                        <div class="top-companies-table-wrapper">
+                            <table class="top-companies-table">
+                                <thead>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>Industry</th>
+                                        <th>Revenue</th>
+                                        <th>Growth</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="top-companies-body">
+                                    <!-- Will be filled dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add Company Form -->
+                <div class="chart-container glass-morphism">
+                    <h3>Add New Company Data</h3>
+                    <form id="add-company-form" class="add-company-form">
+                        <div class="form-group">
+                            <label for="company-name">Company Name</label>
+                            <input type="text" id="company-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-industry">Industry</label>
+                            <select id="company-industry" name="industry" required>
+                                <option value="">-- Select Industry --</option>
+                                <option value="FinTech">FinTech</option>
+                                <option value="AgriTech">AgriTech</option>
+                                <option value="HealthTech">HealthTech</option>
+                                <option value="EdTech">EdTech</option>
+                                <option value="Mobility">Mobility</option>
+                                <option value="Infrastructure">Infrastructure</option>
+                                <option value="E-commerce">E-commerce</option>
+                                <option value="CleanTech">CleanTech</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-team-size">Team Size</label>
+                            <input type="number" id="company-team-size" name="teamSize" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-revenue">Annual Revenue (USD)</label>
+                            <input type="number" id="company-revenue" name="revenue" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-growth">Growth Rate (%)</label>
+                            <input type="number" id="company-growth" name="growth" min="0" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-founded">Founded Year</label>
+                            <input type="number" id="company-founded" name="founded" min="2010" max="2023" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-impact">Impact</label>
+                            <input type="text" id="company-impact" name="impact" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company-description">Description</label>
+                            <textarea id="company-description" name="description" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Add Company</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Market Insights Section -->
+            <section id="market-insights" class="page">
+                <h1>Market Insights</h1>
+                <p class="section-description">Access data-driven insights to make informed business decisions in the Rwandan market.</p>
+                
+                <div class="form-container glass-morphism">
+                    <h2>Get Customized Market Insights</h2>
+                    <form id="market-insights-form" action="#" method="GET">
+                        <div class="form-group">
+                            <label for="industry">Industry</label>
+                            <select name="industry" id="industry" required>
+                                <option value="" disabled selected>-- Select Industry --</option>
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Tourism">Tourism</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" name="location" id="location" placeholder="e.g., Kigali, Rwanda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="revenue_range">Revenue Range</label>
+                            <select name="revenue_range" id="revenue_range" required>
+                                <option value="" disabled selected>-- Select Revenue Range --</option>
+                                <option value="Less than 1 million RWF">Less than 1 million RWF</option>
+                                <option value="1-10 million RWF">1-10 million RWF</option>
+                                <option value="10-100 million RWF">10-100 million RWF</option>
+                                <option value="More than 100 million RWF">More than 100 million RWF</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Get Insights <i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                
+                <div id="insights-results" class="results-container glass-morphism">
+                    <!-- Results will be displayed here dynamically -->
+                </div>
+            </section>
+
+            <!-- Regulatory Guidance Section -->
+            <section id="regulatory-guidance" class="page">
+                <h1>Regulatory Guidance</h1>
+                <p class="section-description">Navigate the complex regulatory landscape with AI-powered guidance tailored to your business needs.</p>
+                
+                <div class="form-container glass-morphism">
+                    <h2>Generate Your Compliance Roadmap</h2>
+                    <form id="regulatory-guidance-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="business_type">Business Type</label>
+                            <select name="business_type" id="business_type" required>
+                                <option value="" disabled selected>-- Select Business Type --</option>
+                                <option value="Sole Proprietorship">Sole Proprietorship</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="Limited Liability Company">Limited Liability Company</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg_industry">Industry</label>
+                            <select name="industry" id="reg_industry" required>
+                                <option value="" disabled selected>-- Select Industry --</option>
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Tourism">Tourism</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="business_objectives">Business Objectives</label>
+                            <textarea name="business_objectives" id="business_objectives" placeholder="Describe your business goals, e.g., exporting, hiring employees, etc." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Generate Roadmap <i class="fas fa-route"></i></button>
+                    </form>
+                </div>
+                
+                <div id="guidance-results" class="results-container glass-morphism">
+                    <!-- Results will be displayed here dynamically -->
+                </div>
+            </section>
+
+            <!-- FAQs Section -->
+            <section id="faqs" class="page">
+                <h1>Frequently Asked Questions</h1>
+                <p class="section-description">Find answers to common questions about our platform and services.</p>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How accurate is the market insights data provided by RTI Consultant?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our market insights are based on comprehensive data collection from multiple reliable sources, including government statistics, industry reports, and real-time market surveys. We regularly update our data and employ advanced analytics to ensure accuracy. While we strive for the highest level of precision, we recommend using our insights as a guide alongside your own business knowledge.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What methodology is used to generate regulatory compliance roadmaps?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our regulatory compliance roadmaps are generated using a combination of expert legal knowledge and advanced AI. We maintain a comprehensive database of Rwandan business regulations that is regularly updated. When you submit your business details, our system analyzes applicable regulations and creates a customized roadmap based on your specific business type, industry, and objectives.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How does RTI Consultant ensure data privacy and security?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We take data security very seriously. All user data is encrypted both in transit and at rest. We implement industry-standard security protocols and regularly conduct security audits. Your business information is never shared with third parties without your explicit consent, and we comply with all Rwandan data protection regulations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What are the pricing and subscription options for using RTI Consultant?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>RTI Consultant offers flexible pricing tiers to accommodate businesses of all sizes. We provide a basic free tier with limited features, and premium tiers starting at 50,000 RWF per month for more comprehensive insights and personalized guidance. Enterprise solutions with custom features are also available. All paid subscriptions can be managed through our secure IremboPay integration.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How does IREMBO integrate into the RTI Consultant platform?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>RTI Consultant integrates seamlessly with IREMBO's payment system (IremboPay) to provide secure, convenient payment options. This integration allows you to pay for premium services using MTN Mobile Money, Airtel Money, VISA/Mastercard, or bank transfers. Additionally, we leverage IREMBO's identity verification capabilities to ensure secure account creation and management.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do LLM models integrate into the RTI Consultant platform?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>RTI Consultant utilizes advanced Large Language Models (LLMs) like Mistral and LLAMA to power our regulatory guidance and market analysis features. These AI models help analyze complex business regulations, generate customized compliance roadmaps, and extract meaningful insights from market data. The LLMs are continuously trained on updated Rwandan business regulations and market trends to provide accurate, relevant guidance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What plans does RTI Consultant have for future development?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>RTI Consultant is committed to continuous improvement. Our roadmap includes expanding our data sources, enhancing our AI capabilities, developing mobile applications, and creating more specialized industry-specific guidance. We also plan to introduce features for connecting businesses with relevant service providers and potential partners within the Rwandan ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- SVG Filters for Modern Effects -->
+    <svg style="display: none;">
+        <filter id="glass-blur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="glass" />
+        </filter>
+    </svg>
+    
+    <script src="scripts.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html> 
