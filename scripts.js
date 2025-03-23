@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize navigation and authentication
+    setupNavigation();
+    checkAuthStatus();
+    setupMobileMenu();
+    setupNotifications();
+
     try {
         // Page Switching Functionality
         setupPageSwitching();
@@ -100,60 +106,67 @@ document.addEventListener('DOMContentLoaded', function() {
                         page.style.animation = '';
                     });
                     
-                    // Show and fade in target page
+                    // Show target page
                     targetPage.classList.add('active');
-                    targetPage.style.animation = 'fadeInUp 0.5s forwards';
+                    targetPage.style.animation = 'fadeIn 0.3s forwards';
                     
-                    // Update active state in navigation
-                    const navLinks = document.querySelectorAll('.nav-link');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
+                    // Set the active class on the corresponding nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
                         if (link.getAttribute('href') === `#${pageId}`) {
                             link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
                         }
                     });
                     
-                    // Update URL hash
-                    window.location.hash = pageId;
-                    
-                    // Scroll to top
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Reinitialize charts if navigating to the dashboard page
-                    if (pageId === 'dashboard' && typeof window.initDashboard === 'function') {
-                        // Use a small delay to ensure the page is fully visible
-                        setTimeout(() => {
-                            if (typeof window.renderIndustryRevenueChart === 'function') {
-                                window.renderIndustryRevenueChart();
+                    // If this is the dashboard page, load the cruster dashboard
+                    if (pageId === 'dashboard') {
+                        const dashboardIframe = document.getElementById('cruster-iframe');
+                        if (dashboardIframe) {
+                            // If the iframe is not loaded yet, set its src
+                            if (!dashboardIframe.src || dashboardIframe.src === 'about:blank') {
+                                dashboardIframe.src = 'cruster/index.html';
                             }
-                            if (typeof window.renderMarketShareChart === 'function') {
-                                window.renderMarketShareChart();
-                            }
-                            if (typeof window.renderStartupGrowthChart === 'function') {
-                                window.renderStartupGrowthChart();
-                            }
-                        }, 100);
+                        }
                     }
                     
-                    console.log(`Navigated to page: ${pageId}`);
-                }, 300); // Match this to the fadeOut animation duration
+                    // Update the hash in the URL
+                    window.location.hash = pageId;
+                }, 300);
             } else {
-                // First load, no current page to fade out
+                // No current active page, just show the target page immediately
                 targetPage.classList.add('active');
                 
-                // Update active state in navigation
-                const navLinks = document.querySelectorAll('.nav-link');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
+                // Set the active class on the corresponding nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
                     if (link.getAttribute('href') === `#${pageId}`) {
                         link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
                     }
                 });
                 
-                console.log(`Navigated to page: ${pageId}`);
+                // If this is the dashboard page, load the cruster dashboard
+                if (pageId === 'dashboard') {
+                    const dashboardIframe = document.getElementById('cruster-iframe');
+                    if (dashboardIframe) {
+                        // If the iframe is not loaded yet, set its src
+                        if (!dashboardIframe.src || dashboardIframe.src === 'about:blank') {
+                            dashboardIframe.src = 'cruster/index.html';
+                        }
+                    }
+                }
+                
+                // Update the hash in the URL
+                window.location.hash = pageId;
+            }
+            
+            console.log(`Navigated to page: ${pageId}`);
+            
+            // Close mobile menu if it's open
+            const sidebar = document.querySelector('.sidebar');
+            if (sidebar && sidebar.classList.contains('mobile-open')) {
+                sidebar.classList.remove('mobile-open');
             }
         } catch (error) {
             console.error('Error navigating to page:', error);

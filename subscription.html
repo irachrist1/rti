@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTI Consultant - Subscription Plans</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/100/ffffff?text=RTI" alt="RTI Consultant Logo" class="logo">
+                <h2>RTI Consultant</h2>
+            </div>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="index.html#dashboard" class="nav-link"><i class="fas fa-chart-bar"></i> <span>Dashboard</span></a></li>
+                    <li><a href="index.html#market-insights" class="nav-link"><i class="fas fa-chart-line"></i> <span>Market Insights</span></a></li>
+                    <li><a href="index.html#regulatory-guidance" class="nav-link"><i class="fas fa-balance-scale"></i> <span>Regulatory Guidance</span></a></li>
+                    <li><a href="subscription.html" class="nav-link active"><i class="fas fa-tags"></i> <span>Subscription</span></a></li>
+                    <li><a href="#" id="account-link" class="nav-link"><i class="fas fa-user"></i> <span>My Account</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>&copy; 2023 RTI Consultant</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <section class="subscription-page">
+                <h1>Choose Your Subscription Plan</h1>
+                <p class="section-description">Select the plan that best fits your business needs and unlock the full potential of data-driven decision making.</p>
+                
+                <div class="subscription-plans">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h2>Free Plan</h2>
+                            <p class="plan-price">0 RWF<span>/month</span></p>
+                            <p class="plan-billing">Forever free</p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Basic market insights</li>
+                                <li><i class="fas fa-check"></i> Limited regulatory guidance</li>
+                                <li><i class="fas fa-check"></i> Rwanda tech ecosystem dashboard</li>
+                                <li><i class="fas fa-check"></i> 3 report exports per month</li>
+                                <li><i class="fas fa-times"></i> Advanced analytics</li>
+                                <li><i class="fas fa-times"></i> Personalized recommendations</li>
+                                <li><i class="fas fa-times"></i> Exclusive reports</li>
+                                <li><i class="fas fa-times"></i> Priority support</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="plan-button current-plan" id="free-plan-btn" disabled>Current Plan</button>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-card featured">
+                        <div class="plan-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h2>Premium Plan</h2>
+                            <p class="plan-price">50,000 RWF<span>/month</span></p>
+                            <p class="plan-billing">Billed monthly or annually</p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Everything in Free plan, plus:</strong></li>
+                                <li><i class="fas fa-check"></i> Advanced market insights</li>
+                                <li><i class="fas fa-check"></i> Comprehensive regulatory guidance</li>
+                                <li><i class="fas fa-check"></i> AI-powered business recommendations</li>
+                                <li><i class="fas fa-check"></i> Exclusive industry reports</li>
+                                <li><i class="fas fa-check"></i> Unlimited report exports</li>
+                                <li><i class="fas fa-check"></i> Access to historical data</li>
+                                <li><i class="fas fa-check"></i> Priority email support</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="plan-button premium-btn" id="premium-plan-btn">Upgrade Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h2>Enterprise Plan</h2>
+                            <p class="plan-price">Contact Us<span></span></p>
+                            <p class="plan-billing">Custom solutions for large organizations</p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Everything in Premium plan, plus:</strong></li>
+                                <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                                <li><i class="fas fa-check"></i> Customized data integration</li>
+                                <li><i class="fas fa-check"></i> API access</li>
+                                <li><i class="fas fa-check"></i> Custom reporting</li>
+                                <li><i class="fas fa-check"></i> Team collaboration features</li>
+                                <li><i class="fas fa-check"></i> On-site training and workshops</li>
+                                <li><i class="fas fa-check"></i> 24/7 priority support</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="plan-button enterprise-btn" id="enterprise-plan-btn">Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subscription-faq">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I upgrade my plan?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Upgrading is easy! Click on the "Upgrade Now" button on the Premium plan card, and you'll be guided through our secure checkout process powered by IREMBOPay. You can pay using MTN Mobile Money, Airtel Money, bank transfer, or credit/debit card.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can I cancel my subscription anytime?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you can cancel your premium subscription at any time from your account settings. If you cancel, you'll still have access to premium features until the end of your current billing cycle, after which your account will revert to the Free plan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Is there a discount for annual billing?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! When you choose annual billing, you get two months free, which is a 16.7% discount compared to monthly billing. The annual plan costs 500,000 RWF per year instead of 600,000 RWF when paying monthly.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What payment methods do you accept?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We accept payments through IREMBOPay, which supports MTN Mobile Money, Airtel Money, VISA/Mastercard, and bank transfers. All payments are secure and encrypted using industry-standard protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Upgrade to Premium Plan</h2>
+            
+            <div class="payment-options">
+                <div class="billing-toggle">
+                    <span class="billing-option active" data-billing="monthly">Monthly</span>
+                    <label class="switch">
+                        <input type="checkbox" id="billing-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="billing-option" data-billing="annual">Annual <span class="discount-badge">Save 16.7%</span></span>
+                </div>
+                
+                <div class="payment-summary">
+                    <div class="summary-item">
+                        <span>Premium Plan</span>
+                        <span id="plan-price">50,000 RWF/month</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span id="total-price">50,000 RWF</span>
+                    </div>
+                </div>
+                
+                <div class="payment-methods">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-method-options">
+                        <div class="payment-method active" data-method="mobile-money">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile Money</span>
+                        </div>
+                        <div class="payment-method" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Card</span>
+                        </div>
+                        <div class="payment-method" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <span>Bank Transfer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method-form" id="mobile-money-form">
+                        <div class="form-group">
+                            <label for="phone-number">Phone Number</label>
+                            <input type="tel" id="phone-number" placeholder="e.g., 078XXXXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="provider">Provider</label>
+                            <select id="provider" required>
+                                <option value="mtn">MTN Mobile Money</option>
+                                <option value="airtel">Airtel Money</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method-form" id="card-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Expiry Date</label>
+                                <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="XXX" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method-form" id="bank-form" style="display: none;">
+                        <p>To pay via bank transfer, please use the following details:</p>
+                        <div class="bank-details">
+                            <p><strong>Bank:</strong> Bank of Kigali</p>
+                            <p><strong>Account Name:</strong> RTI Consultant Ltd</p>
+                            <p><strong>Account Number:</strong> 00012345678901</p>
+                            <p><strong>Reference:</strong> Your email address</p>
+                        </div>
+                        <p class="bank-note">After making the transfer, please email a copy of the transfer receipt to <a href="mailto:billing@rticonsultant.rw">billing@rticonsultant.rw</a> to expedite account activation.</p>
+                    </div>
+                </div>
+                
+                <button class="payment-button" id="complete-payment">Complete Payment</button>
+                <p class="payment-disclaimer">By clicking "Complete Payment", you agree to our <a href="#">Terms of Service</a> and authorize RTI Consultant to charge your selected payment method on a recurring basis. You can cancel anytime.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>You've successfully upgraded to the Premium Plan. Your account has been updated and you now have access to all premium features.</p>
+            <button class="success-button" id="goto-dashboard">Go to Dashboard</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="subscription.js"></script>
+</body>
+</html>

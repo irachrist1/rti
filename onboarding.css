@@ -1,0 +1,849 @@
+/* Onboarding Styles */
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --primary-light: #5dade2;
+    --secondary-color: #2ecc71;
+    --secondary-dark: #27ae60;
+    --accent-color: #f39c12;
+    --danger-color: #e74c3c;
+    --text-color: #333333;
+    --text-light: #767676;
+    --background-color: #f5f7fa;
+    --card-color: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #2ecc71;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.onboarding-container {
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: var(--card-color);
+    box-shadow: var(--box-shadow);
+}
+
+/* Onboarding Header */
+.onboarding-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.logo-container h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.progress-container {
+    width: 50%;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 25%;
+    transition: width 0.3s ease;
+}
+
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: default;
+    position: relative;
+}
+
+.step.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.step.completed {
+    background-color: var(--success-color);
+    color: white;
+}
+
+/* Onboarding Content */
+.onboarding-content {
+    position: relative;
+    min-height: 450px;
+}
+
+.onboarding-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.onboarding-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-content {
+    margin-bottom: 2rem;
+}
+
+.step-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.step-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.onboarding-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.back-btn {
+    background-color: #f1f2f6;
+    color: var(--text-color);
+}
+
+.back-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.next-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.next-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.primary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-dark);
+}
+
+.secondary-btn {
+    background-color: #f1f2f6;
+    color: var(--text-color);
+}
+
+.secondary-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Welcome Page - Modern Version */
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1rem 0;
+}
+
+.welcome-text {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.welcome-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+.welcome-text .step-description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.welcome-actions {
+    border: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-actions .next-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-actions .next-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+}
+
+/* Pulse animation for the get started button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(46, 204, 113, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+.welcome-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.welcome-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1));
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.card-icon i {
+    font-size: 2rem;
+}
+
+.welcome-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.welcome-card p {
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* Enterprise Plan Styling */
+.plan-option.enterprise .plan-label {
+    border-color: #8e44ad;
+}
+
+.plan-option.enterprise .plan-badge {
+    background-color: #8e44ad;
+}
+
+.plan-option.enterprise input[type="radio"]:checked + .plan-label {
+    border-color: #8e44ad;
+    box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.4);
+}
+
+/* Welcome Animation */
+.welcome-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.5s forwards;
+}
+
+.welcome-animation.show {
+    display: flex;
+}
+
+.animation-content {
+    text-align: center;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: scaleIn 0.8s forwards 0.3s;
+}
+
+.animation-icon {
+    font-size: 5rem;
+    color: var(--success-color);
+    margin-bottom: 1rem;
+    animation: checkmark 1s ease-in-out;
+}
+
+.animation-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.animation-content p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Features Preview */
+.features-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--primary-color);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.feature-icon i {
+    font-size: 1.25rem;
+}
+
+.feature-text h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+.feature-text p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Profile Form */
+.onboarding-form {
+    max-width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border 0.2s ease;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Interests Grid */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+.interest-item {
+    position: relative;
+}
+
+.interest-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.interest-item label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.interest-item input[type="checkbox"]:checked + label {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-color: var(--primary-color);
+}
+
+.interest-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.interest-item span {
+    font-weight: 500;
+}
+
+/* Plan Selection */
+.onboarding-plans {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.plan-option {
+    position: relative;
+}
+
+.plan-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.plan-label {
+    display: block;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.plan-option input[type="radio"]:checked + .plan-label {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.plan-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.plan-header h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+}
+
+.plan-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.plan-price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-light);
+}
+
+.plan-features ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.plan-features li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.plan-features li i {
+    color: var(--success-color);
+    margin-right: 0.75rem;
+}
+
+.featured {
+    position: relative;
+    transform: scale(1.05);
+}
+
+.plan-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1;
+}
+
+/* Tour Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    max-width: 500px;
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.close-modal:hover {
+    color: var(--text-color);
+}
+
+.tour-modal-content {
+    text-align: center;
+}
+
+.tour-modal-content h2 {
+    margin-top: 0;
+}
+
+.tour-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.tour-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+/* Tour Tooltips */
+.tour-tooltip {
+    display: none;
+    position: absolute;
+    width: 300px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    animation: tooltipFadeIn 0.3s ease;
+}
+
+@keyframes tooltipFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tooltip-content {
+    padding: 1.25rem;
+}
+
+.tooltip-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.tooltip-content p {
+    margin: 0 0 1rem;
+    color: var(--text-light);
+}
+
+.tooltip-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+.tooltip-counter {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.tooltip-prev, 
+.tooltip-next,
+.tooltip-finish {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0;
+}
+
+.tooltip-finish {
+    color: var(--secondary-color);
+}
+
+.tooltip-arrow {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .onboarding-container {
+        padding: 1.5rem;
+    }
+    
+    .onboarding-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .logo-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    .progress-container {
+        width: 100%;
+    }
+    
+    .features-preview {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .interests-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .onboarding-plans {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured {
+        transform: none;
+    }
+    
+    .plan-badge {
+        top: -10px;
+        right: 10px;
+    }
+    
+    .welcome-content {
+        gap: 2rem;
+    }
+    
+    .welcome-text h2 {
+        font-size: 2rem;
+    }
+    
+    .welcome-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .welcome-card {
+        padding: 1.5rem;
+    }
+    
+    .animation-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .welcome-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .animation-icon {
+        font-size: 4rem;
+    }
+}

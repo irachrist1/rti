@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTI Consultant - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Charts JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar admin-sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/100/ffffff?text=RTI" alt="RTI Consultant Logo" class="logo">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav aria-label="Admin Navigation">
+                <ul>
+                    <li><a href="#dashboard" class="nav-link active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                    <li><a href="#users" class="nav-link"><i class="fas fa-users"></i> <span>Users</span></a></li>
+                    <li><a href="#subscriptions" class="nav-link"><i class="fas fa-credit-card"></i> <span>Subscriptions</span></a></li>
+                    <li><a href="#analytics" class="nav-link"><i class="fas fa-chart-line"></i> <span>Analytics</span></a></li>
+                    <li><a href="#notifications" class="nav-link"><i class="fas fa-bell"></i> <span>Notifications</span></a></li>
+                    <li><a href="#settings" class="nav-link"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-sign-out-alt"></i> <span>Exit Admin</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>Admin Version 1.0</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content admin-content">
+            <!-- Admin Dashboard -->
+            <section id="dashboard" class="admin-page active">
+                <div class="admin-header">
+                    <h1>Admin Dashboard</h1>
+                    <div class="admin-date">
+                        <span id="current-date">Today's Date</span>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon users">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Users</h3>
+                            <p class="stat-value" id="total-users">0</p>
+                            <p class="stat-change up"><i class="fas fa-arrow-up"></i> <span id="users-change">0%</span> from last month</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon premium">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Premium Users</h3>
+                            <p class="stat-value" id="premium-users">0</p>
+                            <p class="stat-change up"><i class="fas fa-arrow-up"></i> <span id="premium-change">0%</span> from last month</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon revenue">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Monthly Revenue</h3>
+                            <p class="stat-value" id="monthly-revenue">0 RWF</p>
+                            <p class="stat-change up"><i class="fas fa-arrow-up"></i> <span id="revenue-change">0%</span> from last month</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon activity">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Active Sessions</h3>
+                            <p class="stat-value" id="active-sessions">0</p>
+                            <p class="stat-change down"><i class="fas fa-arrow-down"></i> <span id="sessions-change">0%</span> from last week</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chart Section -->
+                <div class="admin-charts">
+                    <div class="chart-container admin-chart">
+                        <h3>User Growth</h3>
+                        <canvas id="user-growth-chart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container admin-chart">
+                        <h3>Revenue Overview</h3>
+                        <canvas id="revenue-chart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container admin-chart">
+                        <h3>Feature Usage</h3>
+                        <canvas id="feature-usage-chart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container admin-chart">
+                        <h3>Subscription Distribution</h3>
+                        <canvas id="subscription-chart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h2>Recent Activity</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon signup">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>New Sign Up:</strong> jean.uwase@example.com</p>
+                                <p class="activity-time">2 hours ago</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon payment">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>Payment Received:</strong> 50,000 RWF from claude.muhire@example.com</p>
+                                <p class="activity-time">Yesterday</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon upgrade">
+                                <i class="fas fa-level-up-alt"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>Plan Upgrade:</strong> john.doe@example.com upgraded to Premium</p>
+                                <p class="activity-time">Yesterday</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>Failed Payment:</strong> alice.kamikazi@example.com</p>
+                                <p class="activity-time">2 days ago</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon notification">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text"><strong>Bulk Notification:</strong> March Newsletter sent to 238 users</p>
+                                <p class="activity-time">3 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Management -->
+            <section id="users" class="admin-page">
+                <div class="admin-header">
+                    <h1>User Management</h1>
+                    <div class="admin-actions">
+                        <button class="admin-button"><i class="fas fa-plus"></i> Add User</button>
+                        <div class="admin-search">
+                            <input type="text" id="user-search" placeholder="Search users...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- User Filters -->
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label for="plan-filter">Subscription:</label>
+                        <select id="plan-filter">
+                            <option value="all">All Plans</option>
+                            <option value="free">Free</option>
+                            <option value="premium">Premium</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="status-filter">Status:</label>
+                        <select id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="date-filter">Join Date:</label>
+                        <select id="date-filter">
+                            <option value="all">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                    
+                    <button class="filter-button">Apply Filters</button>
+                    <button class="filter-reset">Reset</button>
+                </div>
+                
+                <!-- Users Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="select-all-users">
+                                </th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Plan</th>
+                                <th>Join Date</th>
+                                <th>Last Login</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body">
+                            <!-- Will be filled with JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn" id="prev-page" disabled><i class="fas fa-chevron-left"></i></button>
+                    <div class="page-numbers" id="page-numbers">
+                        <button class="page-number active">1</button>
+                    </div>
+                    <button class="page-btn" id="next-page"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <!-- Bulk Actions -->
+                <div class="bulk-actions">
+                    <div class="selected-count">0 users selected</div>
+                    <div class="action-buttons">
+                        <button class="action-btn"><i class="fas fa-envelope"></i> Email Selected</button>
+                        <button class="action-btn"><i class="fas fa-trash-alt"></i> Delete Selected</button>
+                        <button class="action-btn"><i class="fas fa-ban"></i> Deactivate Selected</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- More sections will be continued in the next files -->
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

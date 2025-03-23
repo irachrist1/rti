@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTI Consultant - My Account</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/100/ffffff?text=RTI" alt="RTI Consultant Logo" class="logo">
+                <h2>RTI Consultant</h2>
+            </div>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="index.html#dashboard" class="nav-link"><i class="fas fa-chart-bar"></i> <span>Dashboard</span></a></li>
+                    <li><a href="index.html#market-insights" class="nav-link"><i class="fas fa-chart-line"></i> <span>Market Insights</span></a></li>
+                    <li><a href="index.html#regulatory-guidance" class="nav-link"><i class="fas fa-balance-scale"></i> <span>Regulatory Guidance</span></a></li>
+                    <li><a href="subscription.html" class="nav-link"><i class="fas fa-tags"></i> <span>Subscription</span></a></li>
+                    <li><a href="account.html" class="nav-link active"><i class="fas fa-user"></i> <span>My Account</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>&copy; 2023 RTI Consultant</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="account-page">
+                <h1>My Account</h1>
+                <p class="section-description">Manage your account settings, profile information, and subscription details.</p>
+                
+                <!-- Account Tabs -->
+                <div class="account-tabs">
+                    <button class="tab-btn active" data-tab="profile">Profile</button>
+                    <button class="tab-btn" data-tab="subscription">Subscription</button>
+                    <button class="tab-btn" data-tab="usage">Usage & Reports</button>
+                    <button class="tab-btn" data-tab="notifications">Notifications</button>
+                    <button class="tab-btn" data-tab="security">Security</button>
+                </div>
+                
+                <!-- Tab Content Containers -->
+                <div class="tab-content">
+                    <!-- Profile Tab -->
+                    <div id="profile" class="tab-pane active">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="User Profile" id="profile-image">
+                                <button class="change-avatar-btn">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                            <div class="profile-info">
+                                <h2 id="user-name">Claude Muhire</h2>
+                                <p id="user-email">claude.muhire@example.com</p>
+                                <span class="membership-badge premium">Premium Member</span>
+                            </div>
+                        </div>
+                        
+                        <div class="account-card">
+                            <h3>Personal Information</h3>
+                            <form id="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="first-name">First Name</label>
+                                        <input type="text" id="first-name" name="first_name" value="Claude">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="last-name">Last Name</label>
+                                        <input type="text" id="last-name" name="last_name" value="Muhire">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" value="claude.muhire@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" value="+250 781 234 567">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company">Company/Organization</label>
+                                    <input type="text" id="company" name="company" value="Kigali Tech Solutions Ltd">
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="industry">Industry</label>
+                                        <select id="industry" name="industry">
+                                            <option value="">-- Select Industry --</option>
+                                            <option value="Technology" selected>Technology</option>
+                                            <option value="Finance">Finance</option>
+                                            <option value="Agriculture">Agriculture</option>
+                                            <option value="Healthcare">Healthcare</option>
+                                            <option value="Education">Education</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="company-size">Company Size</label>
+                                        <select id="company-size" name="company_size">
+                                            <option value="">-- Select Size --</option>
+                                            <option value="1-10" selected>1-10 employees</option>
+                                            <option value="11-50">11-50 employees</option>
+                                            <option value="51-200">51-200 employees</option>
+                                            <option value="201-1000">201-1000 employees</option>
+                                            <option value="1000+">1000+ employees</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="save-btn">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Subscription Tab -->
+                    <div id="subscription" class="tab-pane">
+                        <div class="account-card">
+                            <h3>Current Subscription</h3>
+                            <div class="current-plan">
+                                <div class="plan-details">
+                                    <h4>Premium Plan</h4>
+                                    <p>Your subscription renews on <strong>April 15, 2023</strong></p>
+                                    <p class="plan-price">50,000 RWF / month</p>
+                                </div>
+                                <div class="plan-actions">
+                                    <button class="secondary-btn" id="change-plan-btn">Change Plan</button>
+                                    <button class="danger-btn" id="cancel-plan-btn">Cancel Subscription</button>
+                                </div>
+                            </div>
+                            
+                            <div class="plan-features">
+                                <h4>Your Plan Includes:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Advanced market insights</li>
+                                    <li><i class="fas fa-check"></i> Comprehensive regulatory guidance</li>
+                                    <li><i class="fas fa-check"></i> AI-powered business recommendations</li>
+                                    <li><i class="fas fa-check"></i> Exclusive industry reports</li>
+                                    <li><i class="fas fa-check"></i> Unlimited report exports</li>
+                                    <li><i class="fas fa-check"></i> Access to historical data</li>
+                                    <li><i class="fas fa-check"></i> Priority email support</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="account-card">
+                            <h3>Payment Method</h3>
+                            <div class="payment-methods">
+                                <div class="payment-method-item active">
+                                    <div class="payment-method-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="payment-method-details">
+                                        <h4>MTN Mobile Money</h4>
+                                        <p>+250 781 234 567 (Primary)</p>
+                                    </div>
+                                    <div class="payment-method-actions">
+                                        <button class="text-btn">Edit</button>
+                                        <button class="text-btn text-danger">Remove</button>
+                                    </div>
+                                </div>
+                                
+                                <button class="add-payment-btn">
+                                    <i class="fas fa-plus"></i> Add Payment Method
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="account-card">
+                            <h3>Billing History</h3>
+                            <div class="billing-history">
+                                <table class="billing-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Description</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Invoice</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mar 15, 2023</td>
+                                            <td>Premium Plan - Monthly</td>
+                                            <td>50,000 RWF</td>
+                                            <td><span class="status-badge success">Paid</span></td>
+                                            <td><a href="#" class="download-link"><i class="fas fa-download"></i> PDF</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Feb 15, 2023</td>
+                                            <td>Premium Plan - Monthly</td>
+                                            <td>50,000 RWF</td>
+                                            <td><span class="status-badge success">Paid</span></td>
+                                            <td><a href="#" class="download-link"><i class="fas fa-download"></i> PDF</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jan 15, 2023</td>
+                                            <td>Premium Plan - Monthly</td>
+                                            <td>50,000 RWF</td>
+                                            <td><span class="status-badge success">Paid</span></td>
+                                            <td><a href="#" class="download-link"><i class="fas fa-download"></i> PDF</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Usage Tab -->
+                    <div id="usage" class="tab-pane">
+                        <div class="account-card">
+                            <h3>Usage Summary</h3>
+                            <div class="usage-summary">
+                                <div class="usage-item">
+                                    <div class="usage-label">Reports Generated</div>
+                                    <div class="usage-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 60%;"></div>
+                                        </div>
+                                        <div class="progress-text">18/30 this month</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item">
+                                    <div class="usage-label">API Calls</div>
+                                    <div class="usage-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 45%;"></div>
+                                        </div>
+                                        <div class="progress-text">450/1000 this month</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item">
+                                    <div class="usage-label">Data Exports</div>
+                                    <div class="usage-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 100%;"></div>
+                                        </div>
+                                        <div class="progress-text">Unlimited</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="account-card">
+                            <h3>Recent Reports</h3>
+                            <div class="reports-list">
+                                <div class="report-item">
+                                    <div class="report-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="report-details">
+                                        <h4>Market Analysis: Kigali Tech Sector</h4>
+                                        <p>Generated on March 10, 2023</p>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="text-btn"><i class="fas fa-download"></i> Download</button>
+                                        <button class="text-btn"><i class="fas fa-share"></i> Share</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="report-item">
+                                    <div class="report-icon">
+                                        <i class="fas fa-file-excel"></i>
+                                    </div>
+                                    <div class="report-details">
+                                        <h4>Regulatory Compliance Checklist</h4>
+                                        <p>Generated on March 5, 2023</p>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="text-btn"><i class="fas fa-download"></i> Download</button>
+                                        <button class="text-btn"><i class="fas fa-share"></i> Share</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="report-item">
+                                    <div class="report-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="report-details">
+                                        <h4>Investment Opportunities in Rwanda</h4>
+                                        <p>Generated on February 28, 2023</p>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="text-btn"><i class="fas fa-download"></i> Download</button>
+                                        <button class="text-btn"><i class="fas fa-share"></i> Share</button>
+                                    </div>
+                                </div>
+                                
+                                <button class="view-all-btn">View All Reports</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notifications Tab -->
+                    <div id="notifications" class="tab-pane">
+                        <div class="account-card">
+                            <h3>Notification Preferences</h3>
+                            <div class="notification-settings">
+                                <div class="notification-group">
+                                    <h4>Email Notifications</h4>
+                                    
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Platform Updates</h5>
+                                            <p>Receive emails about new features, improvements, and system updates</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Newsletter</h5>
+                                            <p>Monthly insights about Rwanda's business landscape</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Market Alerts</h5>
+                                            <p>Important changes in your selected industries</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Billing & Subscription</h5>
+                                            <p>Receipts, payment reminders, and subscription updates</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-group">
+                                    <h4>SMS Notifications</h4>
+                                    
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Payment Reminders</h5>
+                                            <p>Receive SMS before subscription renewal</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Urgent Alerts</h5>
+                                            <p>Immediate notifications for critical market changes</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="save-btn">Save Preferences</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Security Tab -->
+                    <div id="security" class="tab-pane">
+                        <div class="account-card">
+                            <h3>Change Password</h3>
+                            <form id="password-form">
+                                <div class="form-group">
+                                    <label for="current-password">Current Password</label>
+                                    <input type="password" id="current-password" name="current_password">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="new-password">New Password</label>
+                                    <input type="password" id="new-password" name="new_password">
+                                    <p class="form-hint">Password must be at least 8 characters long with at least one uppercase letter, one number, and one special character.</p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm New Password</label>
+                                    <input type="password" id="confirm-password" name="confirm_password">
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="save-btn">Update Password</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="account-card">
+                            <h3>Two-Factor Authentication</h3>
+                            <div class="two-factor-auth">
+                                <div class="auth-status">
+                                    <div class="status-icon disabled">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="status-details">
+                                        <h4>Two-Factor Authentication is Disabled</h4>
+                                        <p>Enable two-factor authentication to add an extra layer of security to your account.</p>
+                                    </div>
+                                </div>
+                                
+                                <button class="primary-btn" id="enable-2fa-btn">Enable Two-Factor Authentication</button>
+                            </div>
+                        </div>
+                        
+                        <div class="account-card">
+                            <h3>Account Actions</h3>
+                            <div class="account-actions">
+                                <button class="danger-btn" id="deactivate-account-btn">Deactivate Account</button>
+                                <p class="action-description">Temporarily deactivate your account. You can reactivate it later by logging in.</p>
+                                
+                                <button class="danger-btn" id="delete-account-btn">Delete Account</button>
+                                <p class="action-description">Permanently delete your account and all associated data. This action cannot be undone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Cancel Subscription Modal -->
+    <div id="cancel-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Cancel Your Subscription?</h2>
+            <p>We're sorry to see you go. If you cancel your subscription:</p>
+            <ul class="modal-list">
+                <li>You'll still have access to premium features until April 15, 2023</li>
+                <li>Your account will automatically downgrade to the Free plan after your subscription ends</li>
+                <li>You can resubscribe at any time</li>
+            </ul>
+            <p>Would you mind sharing the reason for cancelling?</p>
+            <form id="cancel-form">
+                <div class="form-group">
+                    <select id="cancel-reason" name="reason" required>
+                        <option value="">-- Select Reason --</option>
+                        <option value="too_expensive">Too expensive</option>
+                        <option value="not_using">Not using it enough</option>
+                        <option value="missing_features">Missing features I need</option>
+                        <option value="switching">Switching to another service</option>
+                        <option value="temporary">Temporary pause, plan to return</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="cancel-feedback" name="feedback" placeholder="Additional feedback (optional)"></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="secondary-btn close-modal-btn">Keep Subscription</button>
+                    <button type="submit" class="danger-btn">Confirm Cancellation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>

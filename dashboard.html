@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - RTI Consultant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Charts JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/100/ffffff?text=RTI" alt="RTI Consultant Logo" class="logo">
+                <h2>RTI Consultant</h2>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="menu-item active" id="nav-dashboard">
+                        <a href="#" class="menu-link" data-section="dashboard-section">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" id="nav-market-insights">
+                        <a href="#" class="menu-link" data-section="market-insights-section">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Market Insights</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" id="nav-regulatory">
+                        <a href="#" class="menu-link" data-section="regulatory-section">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Regulatory Guidance</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" id="nav-subscription">
+                        <a href="#" class="menu-link" data-section="subscription-section">
+                            <i class="fas fa-tags"></i>
+                            <span>Subscription</span>
+                        </a>
+                    </li>
+                    <li class="menu-item" id="nav-account">
+                        <a href="#" class="menu-link" data-section="account-section">
+                            <i class="fas fa-user"></i>
+                            <span>My Account</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="help-button" data-section="help-support-section">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
+                </button>
+                <button class="logout-button" id="logout-button">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 id="page-title">Dashboard</h1>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    
+                    <div class="notifications">
+                        <button class="icon-button">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/36" alt="User" class="user-avatar">
+                        <span class="user-name">Christian Tonny</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <!-- Welcome Banner -->
+                <section class="welcome-banner">
+                    <div class="welcome-message">
+                        <h2>Welcome back, <span id="user-greeting">John</span>!</h2>
+                        <p>Here's an overview of your business intelligence dashboard.</p>
+                    </div>
+                    
+                    <div class="subscription-info">
+                        <span id="subscription-badge" class="subscription-badge free">Free Plan</span>
+                        <a href="subscription.html" id="upgrade-button" class="upgrade-button">Upgrade Now</a>
+                    </div>
+                </section>
+                
+                <!-- Stats Cards -->
+                <section class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Business Growth</h3>
+                            <p class="stat-value">7.2%</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>2.1% from last month</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Market Share</h3>
+                            <p class="stat-value">12.5%</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>1.3% from last quarter</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Customer Growth</h3>
+                            <p class="stat-value">854</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>12% from last month</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Compliance Score</h3>
+                            <p class="stat-value">92%</p>
+                            <p class="stat-change negative">
+                                <i class="fas fa-arrow-down"></i>
+                                <span>3% from last assessment</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Dashboard Content -->
+                <div class="dashboard-content">
+                    <div class="column-cards">
+                        <!-- Market Trends Chart -->
+                        <div class="dashboard-card chart-card">
+                            <div class="card-header">
+                                <h3>Market Trends</h3>
+                                <div class="card-actions">
+                                    <select id="market-trends-period">
+                                        <option value="week">Last Week</option>
+                                        <option value="month" selected>Last Month</option>
+                                        <option value="quarter">Last Quarter</option>
+                                        <option value="year">Last Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="market-trends-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Industry Distribution Chart -->
+                        <div class="dashboard-card chart-card">
+                            <div class="card-header">
+                                <h3>Industry Distribution</h3>
+                                <a href="market-insights.html" class="view-all-btn">View Details</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="industry-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column-cards">
+                        <!-- Recent Regulations -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Recent Regulatory Updates</h3>
+                                <a href="regulatory.html" class="view-all-btn">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="regulations-list">
+                                    <div class="regulation-item">
+                                        <div class="regulation-icon new">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div class="regulation-content">
+                                            <h4>New E-Commerce Regulations</h4>
+                                            <p>Rwanda's Ministry of Trade has published new guidelines for online businesses...</p>
+                                            <div class="regulation-meta">
+                                                <span class="regulation-date">Mar 15, 2023</span>
+                                                <span class="regulation-status">New</span>
+                                            </div>
+                                        </div>
+                                        <div class="regulation-actions">
+                                            <button class="icon-button"><i class="fas fa-bookmark"></i></button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="regulation-item">
+                                        <div class="regulation-icon updated">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div class="regulation-content">
+                                            <h4>Tax Filing Deadline Extension</h4>
+                                            <p>Rwanda Revenue Authority has extended the annual tax filing deadline by 30 days...</p>
+                                            <div class="regulation-meta">
+                                                <span class="regulation-date">Mar 10, 2023</span>
+                                                <span class="regulation-status">Updated</span>
+                                            </div>
+                                        </div>
+                                        <div class="regulation-actions">
+                                            <button class="icon-button"><i class="fas fa-bookmark"></i></button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="regulation-item">
+                                        <div class="regulation-icon updated">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div class="regulation-content">
+                                            <h4>Import Tariff Changes</h4>
+                                            <p>New import tariffs for technology products have been announced effective from April 1...</p>
+                                            <div class="regulation-meta">
+                                                <span class="regulation-date">Mar 5, 2023</span>
+                                                <span class="regulation-status">Updated</span>
+                                            </div>
+                                        </div>
+                                        <div class="regulation-actions">
+                                            <button class="icon-button"><i class="fas fa-bookmark"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Investment Chart -->
+                        <div class="dashboard-card chart-card">
+                            <div class="card-header">
+                                <h3>Investment Opportunities</h3>
+                                <div class="card-actions">
+                                    <select id="investment-sector">
+                                        <option value="all" selected>All Sectors</option>
+                                        <option value="tech">Technology</option>
+                                        <option value="agri">Agriculture</option>
+                                        <option value="energy">Energy</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="investment-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Market Insights Section -->
+            <section id="market-insights-section" class="content-section">
+                <div class="section-header">
+                    <div class="header-top">
+                        <!-- <h2>Market Insights</h2> -->
+                        <div class="header-actions">
+                            <button class="action-button"><i class="fas fa-file-download"></i> Export Data</button>
+                            <button class="action-button"><i class="fas fa-sync-alt"></i> Refresh</button>
+                        </div>
+                    </div>
+                    <p class="header-description">Leverage data-driven insights to make informed business decisions and identify opportunities in the Rwandan market.</p>
+                    <div class="header-tabs">
+                        <button class="tab-button active"><i class="fas fa-chart-bar"></i> Overview</button>
+                        <button class="tab-button"><i class="fas fa-industry"></i> Industries</button>
+                        <button class="tab-button"><i class="fas fa-map-marker-alt"></i> Regions</button>
+                        <button class="tab-button"><i class="fas fa-search-dollar"></i> Custom Analysis</button>
+                    </div>
+                </div>
+                
+                <!-- Market Overview -->
+                <div class="insights-overview">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Rwanda Market Overview</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="market-summary">
+                                <div class="summary-card">
+                                    <div class="summary-icon">
+                                        <i class="fas fa-city"></i>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h4>GDP Growth</h4>
+                                        <p class="summary-value">10.9%</p>
+                                        <p class="summary-caption">Projected for 2024</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="summary-card">
+                                    <div class="summary-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h4>Population</h4>
+                                        <p class="summary-value">13.3M</p>
+                                        <p class="summary-caption">As of 2023</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="summary-card">
+                                    <div class="summary-icon">
+                                        <i class="fas fa-globe-africa"></i>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h4>Business Environment</h4>
+                                        <p class="summary-value">38th</p>
+                                        <p class="summary-caption">Global Ease of Doing Business</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="summary-card">
+                                    <div class="summary-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="summary-content">
+                                        <h4>FDI Inflows</h4>
+                                        <p class="summary-value">$620M</p>
+                                        <p class="summary-caption">In 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Industry Insights -->
+                <div class="column-cards">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Key Growth Industries</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="industry-insights">
+                                <div class="insight-card">
+                                    <div class="insight-icon" style="background-color: rgba(46, 204, 113, 0.1);">
+                                        <i class="fas fa-leaf" style="color: #2ecc71;"></i>
+                                    </div>
+                                    <div class="insight-content">
+                                        <h4>Agriculture & Food Processing</h4>
+                                        <p>8.2% annual growth with focus on value-added processing and export-oriented production. Key opportunities in coffee, tea, and horticulture.</p>
+                                        <div class="insight-stats">
+                                            <span>Market size: $2.8B</span>
+                                            <span>Growth: 8.2%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-card">
+                                    <div class="insight-icon" style="background-color: rgba(52, 152, 219, 0.1);">
+                                        <i class="fas fa-laptop-code" style="color: #3498db;"></i>
+                                    </div>
+                                    <div class="insight-content">
+                                        <h4>ICT & Innovation</h4>
+                                        <p>15.3% growth with expanding digital infrastructure and government support through the Smart Rwanda Master Plan. Opportunities in fintech, e-commerce, and business process outsourcing.</p>
+                                        <div class="insight-stats">
+                                            <span>Market size: $635M</span>
+                                            <span>Growth: 15.3%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="insight-card">
+                                    <div class="insight-icon" style="background-color: rgba(155, 89, 182, 0.1);">
+                                        <i class="fas fa-hotel" style="color: #9b59b6;"></i>
+                                    </div>
+                                    <div class="insight-content">
+                                        <h4>Tourism & Hospitality</h4>
+                                        <p>12.7% annual growth with focus on high-value eco-tourism and MICE (Meetings, Incentives, Conferences, and Events). Rwanda's tourism revenue expected to double by 2027.</p>
+                                        <div class="insight-stats">
+                                            <span>Market size: $520M</span>
+                                            <span>Growth: 12.7%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card chart-card">
+                        <div class="card-header">
+                            <h3>Investment by Region</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="investment-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Insights Form -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Get Customized Market Insights</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="market-insights-form" class="insights-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="industry-select">Industry</label>
+                                    <select id="industry-select" name="industry" required>
+                                        <option value="" disabled selected>-- Select Industry --</option>
+                                        <option value="Agriculture">Agriculture</option>
+                                        <option value="Technology">Technology</option>
+                                        <option value="Tourism">Tourism</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Energy">Energy</option>
+                                        <option value="Finance">Finance</option>
+                                        <option value="Healthcare">Healthcare</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="location-input">Location</label>
+                                    <input type="text" id="location-input" name="location" placeholder="e.g., Kigali, Rwanda" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="time-period">Time Period</label>
+                                    <select id="time-period" name="time_period" required>
+                                        <option value="quarterly" selected>Quarterly</option>
+                                        <option value="biannual">Biannual</option>
+                                        <option value="annual">Annual</option>
+                                        <option value="5-year">5-Year Forecast</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="primary-button">Generate Insights</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Custom Insights Results -->
+                <div id="custom-insights-results" class="dashboard-card" style="display: none;">
+                    <div class="card-header">
+                        <h3>Custom Market Insights</h3>
+                        <button class="close-insights-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="card-body" id="insights-results-content">
+                        <!-- Results will be loaded here dynamically -->
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Regulatory Guidance Section -->
+            <section id="regulatory-section" class="content-section">
+                <div class="section-header">
+                    <div class="header-top">
+                        <!-- <h2>Regulatory Guidance</h2> -->
+                        <div class="header-actions">
+                            <button class="action-button"><i class="fas fa-file-pdf"></i> Export Report</button>
+                            <button class="action-button"><i class="fas fa-bell"></i> Set Alerts</button>
+                        </div>
+                    </div>
+                    <p class="header-description">Navigate Rwanda's regulatory landscape with AI-powered recommendations tailored to your business.</p>
+                    <div class="header-tabs">
+                        <button class="tab-button active"><i class="fas fa-tachometer-alt"></i> Compliance Dashboard</button>
+                        <button class="tab-button"><i class="fas fa-file-alt"></i> Updates</button>
+                        <button class="tab-button"><i class="fas fa-tasks"></i> Roadmap</button>
+                        <button class="tab-button"><i class="fas fa-robot"></i> AI Assistant</button>
+                    </div>
+                </div>
+                
+                <!-- Regulatory Overview -->
+                <div class="regulatory-overview">
+                    <div class="compliance-score-card">
+                        <div class="score-header">
+                            <h3>Your Compliance Score</h3>
+                        </div>
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg" d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                    <path class="circle" stroke-dasharray="85, 100" d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                    <text x="18" y="20.35" class="percentage">85%</text>
+                                </svg>
+                            </div>
+                            <div class="score-details">
+                                <div class="score-item good">
+                                    <span class="score-label">Tax Compliance:</span>
+                                    <span class="score-value">92%</span>
+                                </div>
+                                <div class="score-item good">
+                                    <span class="score-label">Labor Laws:</span>
+                                    <span class="score-value">90%</span>
+                                </div>
+                                <div class="score-item warning">
+                                    <span class="score-label">Industry Regulations:</span>
+                                    <span class="score-value">78%</span>
+                                </div>
+                                <div class="score-item warning">
+                                    <span class="score-label">Environmental Compliance:</span>
+                                    <span class="score-value">75%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regulatory Updates -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Recent Regulatory Updates</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="regulations-list">
+                            <div class="regulation-item">
+                                <div class="regulation-icon new">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="regulation-content">
+                                    <h4>New E-Commerce Regulations</h4>
+                                    <p>Rwanda's Ministry of Trade has published new guidelines for online businesses operating in Rwanda. These regulations cover consumer protection, digital signatures, and data privacy requirements.</p>
+                                    <div class="regulation-meta">
+                                        <span class="regulation-date">Mar 15, 2023</span>
+                                        <span class="regulation-status">New</span>
+                                    </div>
+                                </div>
+                                <div class="regulation-actions">
+                                    <button class="icon-button"><i class="fas fa-bookmark"></i></button>
+                                    <button class="icon-button"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="regulation-item">
+                                <div class="regulation-icon updated">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="regulation-content">
+                                    <h4>Tax Filing Deadline Extension</h4>
+                                    <p>Rwanda Revenue Authority has extended the annual tax filing deadline by 30 days. This applies to all businesses registered for VAT and corporate income tax. The new deadline is April 30, 2023.</p>
+                                    <div class="regulation-meta">
+                                        <span class="regulation-date">Mar 10, 2023</span>
+                                        <span class="regulation-status">Updated</span>
+                                    </div>
+                                </div>
+                                <div class="regulation-actions">
+                                    <button class="icon-button"><i class="fas fa-bookmark"></i></button>
+                                    <button class="icon-button"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="regulation-item">
+                                <div class="regulation-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="regulation-content">
+                                    <h4>Small Business Support Program</h4>
+                                    <p>The Ministry of Trade and Industry has launched a new program to support small businesses affected by the pandemic. This includes tax relief, grants, and low-interest loans for qualifying businesses.</p>
+                                    <div class="regulation-meta">
+                                        <span class="regulation-date">Mar 5, 2023</span>
+                                        <span class="regulation-status">Important</span>
+                                    </div>
+                                </div>
+                                <div class="regulation-actions">
+                                    <button class="icon-button"><i class="fas fa-bookmark"></i></button>
+                                    <button class="icon-button"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="regulation-item">
+                                <div class="regulation-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="regulation-content">
+                                    <h4>Import Duty Changes</h4>
+                                    <p>Rwanda has revised import duties for certain categories of goods, effective April 1, 2023. This includes reduced duties on manufacturing equipment and increased duties on luxury items.</p>
+                                    <div class="regulation-meta">
+                                        <span class="regulation-date">Feb 28, 2023</span>
+                                        <span class="regulation-status">Updated</span>
+                                    </div>
+                                </div>
+                                <div class="regulation-actions">
+                                    <button class="icon-button"><i class="fas fa-bookmark"></i></button>
+                                    <button class="icon-button"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Compliance Roadmap -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Your Compliance Roadmap</h3>
+                        <button class="refresh-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="compliance-roadmap">
+                            <div class="roadmap-timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>Business Registration Renewal</h4>
+                                        <p>Annual business registration renewal with Rwanda Development Board</p>
+                                        <div class="timeline-meta">
+                                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Completed: Jan 15, 2023</span>
+                                            <span class="timeline-status completed"><i class="fas fa-check-circle"></i> Completed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item completed">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>Q1 Tax Filing</h4>
+                                        <p>Quarterly VAT and withholding tax returns</p>
+                                        <div class="timeline-meta">
+                                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Completed: Apr 5, 2023</span>
+                                            <span class="timeline-status completed"><i class="fas fa-check-circle"></i> Completed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item current">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>Employee RSSB Contributions</h4>
+                                        <p>Monthly Rwanda Social Security Board contributions for employees</p>
+                                        <div class="timeline-meta">
+                                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Due: May 15, 2023</span>
+                                            <span class="timeline-status pending"><i class="fas fa-clock"></i> Pending</span>
+                                        </div>
+                                        <button class="action-btn"><i class="fas fa-file-invoice"></i> Prepare Filing</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>Environmental Compliance Audit</h4>
+                                        <p>Annual environmental compliance audit required for manufacturing businesses</p>
+                                        <div class="timeline-meta">
+                                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Due: Jun 30, 2023</span>
+                                            <span class="timeline-status upcoming"><i class="fas fa-exclamation-circle"></i> Upcoming</span>
+                                        </div>
+                                        <button class="action-btn"><i class="fas fa-calendar-plus"></i> Schedule Audit</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h4>Q2 Tax Filing</h4>
+                                        <p>Quarterly VAT and withholding tax returns</p>
+                                        <div class="timeline-meta">
+                                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Due: Jul 15, 2023</span>
+                                            <span class="timeline-status upcoming"><i class="fas fa-exclamation-circle"></i> Upcoming</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regulatory AI Assistant -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Regulatory AI Assistant</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="ai-assistant">
+                            <div class="assistant-chat">
+                                <div class="chat-message system">
+                                    <div class="message-avatar">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <div class="message-content">
+                                        <p>Hello! I'm your regulatory guidance assistant. Ask me any questions about business regulations in Rwanda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="assistant-input">
+                                <input type="text" placeholder="Type your regulatory question here..." id="regulatory-query">
+                                <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                            <div class="assistant-suggestions">
+                                <button class="suggestion-chip">How do I register a new business?</button>
+                                <button class="suggestion-chip">What are the tax filing deadlines?</button>
+                                <button class="suggestion-chip">Labor law requirements</button>
+                                <button class="suggestion-chip">Export regulations</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Subscription Section -->
+            <section id="subscription-section" class="content-section">
+                <div class="section-header">
+                    <div class="header-top">
+                        <h2>Subscription Plans</h2>
+                        <div class="header-actions">
+                            <button class="action-button">
+                                <i class="fas fa-history"></i> Billing History
+                            </button>
+                            <button class="action-button">
+                                <i class="fas fa-question-circle"></i> Subscription FAQ
+                            </button>
+                        </div>
+                    </div>
+                    <p class="header-description">Choose the plan that best fits your business needs and unlock the full potential of data-driven decision making.</p>
+                </div>
+                
+                <div class="subscription-plans">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Free Plan</h3>
+                            <p class="plan-price">0 RWF<span>/month</span></p>
+                            <p class="plan-billing">Forever free</p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Basic market insights</li>
+                                <li><i class="fas fa-check"></i> Limited regulatory guidance</li>
+                                <li><i class="fas fa-check"></i> Rwanda tech ecosystem dashboard</li>
+                                <li><i class="fas fa-check"></i> 3 report exports per month</li>
+                                <li><i class="fas fa-times"></i> Advanced analytics</li>
+                                <li><i class="fas fa-times"></i> Personalized recommendations</li>
+                                <li><i class="fas fa-times"></i> Exclusive reports</li>
+                                <li><i class="fas fa-times"></i> Priority support</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="plan-button current-plan" id="free-plan-btn" disabled>Current Plan</button>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-card featured">
+                        <div class="plan-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h3>Premium Plan</h3>
+                            <p class="plan-price">50,000 RWF<span>/month</span></p>
+                            <p class="plan-billing">Billed monthly or annually</p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Everything in Free plan, plus:</strong></li>
+                                <li><i class="fas fa-check"></i> Advanced market insights</li>
+                                <li><i class="fas fa-check"></i> Comprehensive regulatory guidance</li>
+                                <li><i class="fas fa-check"></i> AI-powered business recommendations</li>
+                                <li><i class="fas fa-check"></i> Exclusive industry reports</li>
+                                <li><i class="fas fa-check"></i> Unlimited report exports</li>
+                                <li><i class="fas fa-check"></i> Access to historical data</li>
+                                <li><i class="fas fa-check"></i> Priority email support</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="plan-button premium-btn" id="premium-plan-btn">Upgrade Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Enterprise Plan</h3>
+                            <p class="plan-price">Contact Us<span></span></p>
+                            <p class="plan-billing">Custom solutions for large organizations</p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> <strong>Everything in Premium plan, plus:</strong></li>
+                                <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                                <li><i class="fas fa-check"></i> Customized data integration</li>
+                                <li><i class="fas fa-check"></i> API access</li>
+                                <li><i class="fas fa-check"></i> Custom reporting</li>
+                                <li><i class="fas fa-check"></i> Team collaboration features</li>
+                                <li><i class="fas fa-check"></i> On-site training and workshops</li>
+                                <li><i class="fas fa-check"></i> 24/7 priority support</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="plan-button enterprise-btn" id="enterprise-plan-btn">Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subscription-faq">
+                    <h3>Frequently Asked Questions</h3>
+                    
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>How do I upgrade my plan?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Upgrading is easy! Click on the "Upgrade Now" button on the Premium plan card, and you'll be guided through our secure checkout process powered by IREMBOPay. You can pay using MTN Mobile Money, Airtel Money, bank transfer, or credit/debit card.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Can I cancel my subscription anytime?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you can cancel your premium subscription at any time from your account settings. If you cancel, you'll still have access to premium features until the end of your current billing cycle, after which your account will revert to the Free plan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>Is there a discount for annual billing?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! When you choose annual billing, you get two months free, which is a 16.7% discount compared to monthly billing. The annual plan costs 500,000 RWF per year instead of 600,000 RWF when paying monthly.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h4>What payment methods do you accept?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We accept payments through IREMBOPay, which supports MTN Mobile Money, Airtel Money, VISA/Mastercard, and bank transfers. All payments are secure and encrypted using industry-standard protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- My Account Section -->
+            <section id="account-section" class="content-section">
+                <div class="section-header">
+                    <div class="header-top">
+                        <h2>My Account</h2>
+                        <div class="header-actions">
+                            <button id="save-all-settings" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                            <button id="logout-button" class="btn btn-secondary">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="https://ui-avatars.com/api/?name=Christian+Tonny&size=100&background=3498db&color=fff" alt="User Profile" />
+                        <button class="change-avatar-btn">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="user-name">Christian Tonny</h2>
+                        <p id="user-email">christian@example.com</p>
+                        <span id="membership-badge" class="membership-badge">Free Member</span>
+                    </div>
+                </div>
+
+                <div class="account-tabs">
+                    <button class="account-tab-btn active" data-tab="profile-tab">Profile</button>
+                    <button class="account-tab-btn" data-tab="subscription-tab">Subscription</button>
+                    <button class="account-tab-btn" data-tab="usage-tab">Usage & Reports</button>
+                    <button class="account-tab-btn" data-tab="notifications-tab">Notifications</button>
+                    <button class="account-tab-btn" data-tab="security-tab">Security & Privacy</button>
+                </div>
+
+                <div class="account-tab-content">
+                    <!-- Profile Tab -->
+                    <div id="profile-tab" class="account-tab-pane active">
+                        <div class="account-card">
+                            <h3>Personal Information</h3>
+                            <form id="profile-form" class="form-grid">
+                                <div class="form-group">
+                                    <label for="first-name">First Name <span class="required">*</span></label>
+                                    <input type="text" id="first-name" name="first-name" required placeholder="Your first name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name <span class="required">*</span></label>
+                                    <input type="text" id="last-name" name="last-name" required placeholder="Your last name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required placeholder="Your email address" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Your phone number" />
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="account-card">
+                            <h3>Company Information</h3>
+                            <form class="form-grid">
+                                <div class="form-group">
+                                    <label for="company">Company Name</label>
+                                    <input type="text" id="company" name="company" placeholder="Your company name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="industry">Industry</label>
+                                    <select id="industry" name="industry">
+                                        <option value="">Select Industry</option>
+                                        <option value="technology">Technology</option>
+                                        <option value="agriculture">Agriculture</option>
+                                        <option value="manufacturing">Manufacturing</option>
+                                        <option value="retail">Retail & Commerce</option>
+                                        <option value="financial">Financial Services</option>
+                                        <option value="healthcare">Healthcare</option>
+                                        <option value="education">Education</option>
+                                        <option value="energy">Energy</option>
+                                        <option value="tourism">Tourism & Hospitality</option>
+                                        <option value="creative">Creative Industries</option>
+                                        <option value="construction">Construction & Real Estate</option>
+                                        <option value="transport">Transport & Logistics</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-size">Company Size</label>
+                                    <select id="company-size" name="company-size">
+                                        <option value="">Select Company Size</option>
+                                        <option value="solo">Solo Entrepreneur</option>
+                                        <option value="2-10">2-10 employees</option>
+                                        <option value="11-50">11-50 employees</option>
+                                        <option value="51-200">51-200 employees</option>
+                                        <option value="201-500">201-500 employees</option>
+                                        <option value="501+">501+ employees</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Subscription Tab -->
+                    <div id="subscription-tab" class="account-tab-pane">
+                        <div class="account-card">
+                            <h3>Current Subscription</h3>
+                            <div class="current-plan">
+                                <div class="plan-details">
+                                    <h4 id="current-plan-name">Free Plan</h4>
+                                    <p>Your subscription will automatically renew on the first day of each billing period.</p>
+                                    <div class="plan-price" id="current-plan-price">Free</div>
+                                </div>
+                                <div class="plan-actions">
+                                    <button id="change-plan-btn" class="primary-btn">Change Plan</button>
+                                    <button id="cancel-plan-btn" class="danger-btn">Cancel Plan</button>
+                                </div>
+                            </div>
+                            <div class="plan-features">
+                                <h4>Included Features</h4>
+                                <ul id="plan-features-list">
+                                    <li><i class="fas fa-check"></i> Basic market insights</li>
+                                    <li><i class="fas fa-check"></i> Limited regulatory guidance</li>
+                                    <li><i class="fas fa-check"></i> Rwanda tech ecosystem dashboard</li>
+                                    <li><i class="fas fa-check"></i> 3 report exports per month</li>
+                                    <li><i class="fas fa-times"></i> Advanced analytics</li>
+                                    <li><i class="fas fa-times"></i> Personalized recommendations</li>
+                                    <li><i class="fas fa-times"></i> Exclusive reports</li>
+                                    <li><i class="fas fa-times"></i> Priority support</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="account-card">
+                            <h3>Payment Methods</h3>
+                            <div class="payment-methods">
+                                <div class="payment-method-item active">
+                                    <div class="payment-method-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="payment-method-details">
+                                        <h4>MTN Mobile Money</h4>
+                                        <p>Primary • ****7890</p>
+                                    </div>
+                                    <div class="payment-method-actions">
+                                        <button class="text-btn">Edit</button>
+                                        <button class="text-btn text-danger">Remove</button>
+                                    </div>
+                                </div>
+                                <button class="add-payment-btn">
+                                    <i class="fas fa-plus"></i> Add Payment Method
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="account-card">
+                            <h3>Billing History</h3>
+                            <table class="billing-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Invoice</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sep 01, 2023</td>
+                                        <td>Premium Plan Subscription</td>
+                                        <td>50,000 RWF</td>
+                                        <td><span class="status-badge success">Paid</span></td>
+                                        <td><a href="#" class="download-link"><i class="fas fa-download"></i> PDF</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aug 01, 2023</td>
+                                        <td>Premium Plan Subscription</td>
+                                        <td>50,000 RWF</td>
+                                        <td><span class="status-badge success">Paid</span></td>
+                                        <td><a href="#" class="download-link"><i class="fas fa-download"></i> PDF</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 01, 2023</td>
+                                        <td>Premium Plan Trial</td>
+                                        <td>Free</td>
+                                        <td><span class="status-badge success">Completed</span></td>
+                                        <td><a href="#" class="download-link"><i class="fas fa-download"></i> PDF</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Usage Tab -->
+                    <div id="usage-tab" class="account-tab-pane">
+                        <div class="account-card">
+                            <h3>Usage Summary</h3>
+                            <div class="usage-summary">
+                                <div class="usage-item">
+                                    <div class="usage-label">Report Credits</div>
+                                    <div class="usage-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 70%;"></div>
+                                        </div>
+                                        <div class="progress-text">
+                                            <span>7 of 10 used</span>
+                                            <span>70%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="usage-item">
+                                    <div class="usage-label">API Calls</div>
+                                    <div class="usage-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 45%;"></div>
+                                        </div>
+                                        <div class="progress-text">
+                                            <span>450 of 1000 used</span>
+                                            <span>45%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="usage-item">
+                                    <div class="usage-label">AI Assistance</div>
+                                    <div class="usage-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 30%;"></div>
+                                        </div>
+                                        <div class="progress-text">
+                                            <span>15 of 50 used</span>
+                                            <span>30%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="account-card">
+                            <h3>Recent Reports</h3>
+                            <div class="reports-list">
+                                <div class="report-item">
+                                    <div class="report-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="report-details">
+                                        <h4>Technology Sector Analysis</h4>
+                                        <p>Generated on Sep 15, 2023 • 3.5 MB</p>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="secondary-btn">View</button>
+                                        <button class="secondary-btn">Download</button>
+                                    </div>
+                                </div>
+                                <div class="report-item">
+                                    <div class="report-icon">
+                                        <i class="fas fa-file-excel"></i>
+                                    </div>
+                                    <div class="report-details">
+                                        <h4>Regional Growth Opportunities</h4>
+                                        <p>Generated on Sep 10, 2023 • 2.8 MB</p>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="secondary-btn">View</button>
+                                        <button class="secondary-btn">Download</button>
+                                    </div>
+                                </div>
+                                <div class="report-item">
+                                    <div class="report-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="report-details">
+                                        <h4>Regulatory Compliance Guide</h4>
+                                        <p>Generated on Sep 5, 2023 • 5.1 MB</p>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="secondary-btn">View</button>
+                                        <button class="secondary-btn">Download</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="view-all-btn">View All Reports</button>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Tab -->
+                    <div id="notifications-tab" class="account-tab-pane">
+                        <div class="account-card">
+                            <h3>Email Notifications</h3>
+                            <div class="notification-settings">
+                                <div class="notification-group">
+                                    <h4>Account Updates</h4>
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Security Alerts</h5>
+                                            <p>Get notified about important security events like password changes, suspicious logins, etc.</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Billing & Payment</h5>
+                                            <p>Receive notifications about subscription renewals, payment receipts, and plan changes.</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-group">
+                                    <h4>Market & Regulatory Updates</h4>
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Market Insights</h5>
+                                            <p>Weekly updates about market trends, industry analysis, and growth opportunities.</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Regulatory Changes</h5>
+                                            <p>Get alerts when there are important regulatory updates that might affect your business.</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Industry News</h5>
+                                            <p>Stay up to date with the latest news and events in your industry and region.</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="notification-group">
+                                    <h4>System & Product</h4>
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Platform Updates</h5>
+                                            <p>Get notified when new features are added or when there are maintenance updates.</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="notification-option">
+                                        <div class="option-details">
+                                            <h5>Marketing & Offers</h5>
+                                            <p>Receive information about special offers, promotions, and upcoming events.</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Tab -->
+                    <div id="security-tab" class="account-tab-pane">
+                        <div class="account-card">
+                            <h3>Change Password</h3>
+                            <form id="password-form">
+                                <div class="form-group">
+                                    <label for="current-password">Current Password <span class="required">*</span></label>
+                                    <input type="password" id="current-password" name="current-password" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">New Password <span class="required">*</span></label>
+                                    <input type="password" id="new-password" name="new-password" required />
+                                    <div class="form-hint">Password must be at least 8 characters long with at least one uppercase letter, one number, and one special character.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm New Password <span class="required">*</span></label>
+                                    <input type="password" id="confirm-password" name="confirm-password" required />
+                                </div>
+                                <button type="submit" class="save-btn">Update Password</button>
+                            </form>
+                        </div>
+
+                        <div class="account-card">
+                            <h3>Two-Factor Authentication</h3>
+                            <div class="two-factor-auth">
+                                <div class="auth-status">
+                                    <div class="status-icon disabled">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="status-details">
+                                        <h4>Two-Factor Authentication is disabled</h4>
+                                        <p>Add an extra layer of security to your account by enabling two-factor authentication.</p>
+                                    </div>
+                                </div>
+                                <button id="enable-2fa-btn" class="primary-btn">Enable 2FA</button>
+                            </div>
+                        </div>
+
+                        <div class="account-card">
+                            <h3>Account Actions</h3>
+                            <div class="account-actions">
+                                <div class="action-description">The following actions will affect your account. Please proceed with caution.</div>
+                                <button id="deactivate-account-btn" class="secondary-btn">Deactivate Account</button>
+                                <button id="delete-account-btn" class="danger-btn">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Help & Support Section -->
+            <section id="help-support-section" class="content-section">
+                <div class="section-header">
+                    <div class="header-top">
+                        <h2>Help & Support</h2>
+                        <div class="header-actions">
+                            <button class="action-button" id="contact-support-button">
+                                <i class="fas fa-headset"></i> Contact Support
+                            </button>
+                            <button class="action-button" id="view-tutorials-button">
+                                <i class="fas fa-video"></i> View Tutorials
+                            </button>
+                        </div>
+                    </div>
+                    <p class="header-description">Get assistance, learn how to use the platform, and find answers to common questions.</p>
+                </div>
+
+                <div class="help-tabs">
+                    <button class="help-tab-btn active" data-tab="faqs-tab">
+                        <i class="fas fa-question-circle"></i> FAQs
+                    </button>
+                    <button class="help-tab-btn" data-tab="guide-tab">
+                        <i class="fas fa-book"></i> User Guide
+                    </button>
+                    <button class="help-tab-btn" data-tab="contact-tab">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </button>
+                    <button class="help-tab-btn" data-tab="tutorials-tab">
+                        <i class="fas fa-video"></i> Video Tutorials
+                    </button>
+                </div>
+
+                <div class="help-tab-content">
+                    <!-- FAQs Tab -->
+                    <div id="faqs-tab" class="help-tab-pane active">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Frequently Asked Questions</h3>
+                                <div class="faq-search">
+                                    <input type="text" id="faq-search" placeholder="Search FAQs...">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="faq-categories">
+                                    <button class="faq-category active" data-category="all">All</button>
+                                    <button class="faq-category" data-category="account">Account</button>
+                                    <button class="faq-category" data-category="subscription">Subscription</button>
+                                    <button class="faq-category" data-category="features">Features</button>
+                                    <button class="faq-category" data-category="technical">Technical</button>
+                                </div>
+
+                                <div class="faq-container">
+                                    <div class="faq-item" data-category="account">
+                                        <div class="faq-question">
+                                            <h4>How do I change my account information?</h4>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>You can update your profile information by going to the "My Account" section from the sidebar navigation. Click on the "Profile" tab where you can edit your personal and company information.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="subscription">
+                                        <div class="faq-question">
+                                            <h4>How do I upgrade my subscription?</h4>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>To upgrade your subscription, navigate to the "Subscription" section from the sidebar. You'll see different plan options available. Click on the "Upgrade Now" button under the Premium Plan or "Contact Sales" for the Enterprise Plan. Follow the instructions to complete your payment.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="subscription">
+                                        <div class="faq-question">
+                                            <h4>Can I cancel my subscription anytime?</h4>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>Yes, you can cancel your subscription at any time. Go to "My Account" and select the "Subscription" tab. Click on "Cancel Plan" and follow the prompts. Your subscription will remain active until the end of your current billing cycle, after which your account will revert to the Free plan.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="features">
+                                        <div class="faq-question">
+                                            <h4>How do I generate custom market insights?</h4>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>To generate custom market insights, go to the "Market Insights" section and scroll down to the "Get Customized Market Insights" form. Select your industry, location, and time period, then click "Generate Insights." The platform will analyze the data and provide you with tailored market information.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="features">
+                                        <div class="faq-question">
+                                            <h4>How does the Regulatory AI Assistant work?</h4>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>The Regulatory AI Assistant is an intelligent tool that answers your questions about business regulations in Rwanda. Navigate to the "Regulatory Guidance" section and scroll down to the assistant. Type your question in the input field or select one of the suggested queries. The AI will analyze your question and provide relevant regulatory information based on the latest data.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="technical">
+                                        <div class="faq-question">
+                                            <h4>I'm having trouble loading certain sections of the dashboard. What should I do?</h4>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>If you're experiencing loading issues, try these steps:</p>
+                                            <ol>
+                                                <li>Refresh your browser</li>
+                                                <li>Clear your browser cache</li>
+                                                <li>Try a different browser</li>
+                                                <li>Check your internet connection</li>
+                                                <li>If the problem persists, contact our support team through the "Contact Us" tab in the Help & Support section</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="account">
+                                        <div class="faq-question">
+                                            <h4>How secure is my data on the platform?</h4>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>We take data security very seriously. Your data is encrypted using industry-standard protocols both in transit and at rest. We implement multiple security layers including secure authentication, regular security audits, and compliance with international data protection regulations. Your business information is never shared with third parties without your explicit consent.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="faq-item" data-category="technical">
+                                        <div class="faq-question">
+                                            <h4>Can I export data from the dashboard?</h4>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <p>Yes, you can export data from various sections of the dashboard. Look for export buttons (usually with icons like <i class="fas fa-file-download"></i> or <i class="fas fa-download"></i>) in the header of each section or card. The free plan allows 3 exports per month, while premium and enterprise plans offer unlimited exports.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- User Guide Tab -->
+                    <div id="guide-tab" class="help-tab-pane">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>User Guide</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="guide-nav">
+                                    <div class="guide-nav-item active" data-guide="getting-started">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>Getting Started</span>
+                                    </div>
+                                    <div class="guide-nav-item" data-guide="dashboard-overview">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>Dashboard Overview</span>
+                                    </div>
+                                    <div class="guide-nav-item" data-guide="market-insights-guide">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Market Insights</span>
+                                    </div>
+                                    <div class="guide-nav-item" data-guide="regulatory-guide">
+                                        <i class="fas fa-balance-scale"></i>
+                                        <span>Regulatory Guidance</span>
+                                    </div>
+                                    <div class="guide-nav-item" data-guide="subscription-guide">
+                                        <i class="fas fa-tags"></i>
+                                        <span>Subscription Management</span>
+                                    </div>
+                                    <div class="guide-nav-item" data-guide="account-guide">
+                                        <i class="fas fa-user"></i>
+                                        <span>Account Settings</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="guide-content">
+                                    <div id="getting-started" class="guide-section active">
+                                        <h4>Getting Started with RTI Consultant</h4>
+                                        <p>Welcome to RTI Consultant, your business intelligence platform for Rwanda's market. This guide will help you get familiar with our platform and make the most of its features.</p>
+                                        
+                                        <div class="guide-step">
+                                            <div class="step-number">1</div>
+                                            <div class="step-content">
+                                                <h5>Complete Your Profile</h5>
+                                                <p>Navigate to "My Account" and fill in your personal and company information. This helps us customize insights for your business needs.</p>
+                                                <img src="https://via.placeholder.com/500x300?text=Complete+Profile+Screenshot" alt="Complete Profile Screenshot" class="guide-img">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="guide-step">
+                                            <div class="step-number">2</div>
+                                            <div class="step-content">
+                                                <h5>Explore the Dashboard</h5>
+                                                <p>The main dashboard gives you an overview of key metrics, market trends, and recent regulatory updates. Take some time to explore the different cards and charts.</p>
+                                                <img src="https://via.placeholder.com/500x300?text=Dashboard+Overview+Screenshot" alt="Dashboard Overview Screenshot" class="guide-img">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="guide-step">
+                                            <div class="step-number">3</div>
+                                            <div class="step-content">
+                                                <h5>Generate Custom Insights</h5>
+                                                <p>Go to the "Market Insights" section and use the form to generate custom insights for your industry and location.</p>
+                                                <img src="https://via.placeholder.com/500x300?text=Custom+Insights+Screenshot" alt="Custom Insights Screenshot" class="guide-img">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="guide-step">
+                                            <div class="step-number">4</div>
+                                            <div class="step-content">
+                                                <h5>Check Your Compliance</h5>
+                                                <p>Visit the "Regulatory Guidance" section to view your compliance score and upcoming regulatory deadlines.</p>
+                                                <img src="https://via.placeholder.com/500x300?text=Regulatory+Guidance+Screenshot" alt="Regulatory Guidance Screenshot" class="guide-img">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="guide-step">
+                                            <div class="step-number">5</div>
+                                            <div class="step-content">
+                                                <h5>Consider Upgrading</h5>
+                                                <p>To access all features, visit the "Subscription" section to compare plans and upgrade to Premium or Enterprise.</p>
+                                                <img src="https://via.placeholder.com/500x300?text=Subscription+Plans+Screenshot" alt="Subscription Plans Screenshot" class="guide-img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="dashboard-overview" class="guide-section">
+                                        <h4>Dashboard Overview</h4>
+                                        <p>The dashboard is your central hub for monitoring business metrics, market trends, and regulatory updates in Rwanda.</p>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Welcome Banner</h5>
+                                            <p>The welcome banner displays your name and current subscription status. You can quickly upgrade your plan from here.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Welcome+Banner+Screenshot" alt="Welcome Banner Screenshot" class="guide-img">
+                                        </div>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Stats Cards</h5>
+                                            <p>These cards show key metrics like business growth, market share, customer growth, and compliance score. Each card includes the current value and a comparison to the previous period.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Stats+Cards+Screenshot" alt="Stats Cards Screenshot" class="guide-img">
+                                        </div>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Market Trends Chart</h5>
+                                            <p>This chart displays market trends over time. Use the dropdown to change the time period being displayed.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Market+Trends+Chart+Screenshot" alt="Market Trends Chart Screenshot" class="guide-img">
+                                        </div>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Industry Distribution Chart</h5>
+                                            <p>This chart shows the distribution of industries in the Rwandan market. Hover over segments to see detailed percentages.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Industry+Distribution+Chart+Screenshot" alt="Industry Distribution Chart Screenshot" class="guide-img">
+                                        </div>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Recent Regulatory Updates</h5>
+                                            <p>This section shows the latest regulatory changes that might affect your business. Click on any update to see more details.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Regulatory+Updates+Screenshot" alt="Regulatory Updates Screenshot" class="guide-img">
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="market-insights-guide" class="guide-section">
+                                        <h4>Market Insights Guide</h4>
+                                        <p>The Market Insights section provides in-depth analysis of Rwanda's market landscape and opportunities for your business.</p>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Market Overview</h5>
+                                            <p>This section gives a high-level view of Rwanda's economic indicators, including GDP growth, population, business environment ranking, and foreign direct investment.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Market+Overview+Screenshot" alt="Market Overview Screenshot" class="guide-img">
+                                        </div>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Key Growth Industries</h5>
+                                            <p>Explore the fastest growing industries in Rwanda, with details on market size, growth rates, and opportunities in each sector.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Growth+Industries+Screenshot" alt="Growth Industries Screenshot" class="guide-img">
+                                        </div>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Investment by Region</h5>
+                                            <p>This chart shows investment distribution across different regions of Rwanda. Use this to identify regional opportunities for your business.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Investment+By+Region+Screenshot" alt="Investment By Region Screenshot" class="guide-img">
+                                        </div>
+                                        
+                                        <div class="guide-subsection">
+                                            <h5>Custom Market Insights</h5>
+                                            <p>Generate tailored insights for your specific industry and location:</p>
+                                            <ol>
+                                                <li>Select your industry from the dropdown</li>
+                                                <li>Enter your location of interest</li>
+                                                <li>Choose a time period</li>
+                                                <li>Click "Generate Insights"</li>
+                                            </ol>
+                                            <p>The system will analyze the data and present a comprehensive report with market size, growth rates, and investment opportunities.</p>
+                                            <img src="https://via.placeholder.com/500x300?text=Custom+Insights+Form+Screenshot" alt="Custom Insights Form Screenshot" class="guide-img">
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="regulatory-guide" class="guide-section">
+                                        <!-- Regulatory Guide content goes here -->
+                                        <h4>Regulatory Guidance Guide</h4>
+                                        <p>This section helps you navigate Rwanda's regulatory environment and stay compliant with all relevant laws and regulations.</p>
+                                        
+                                        <!-- Additional content would go here -->
+                                    </div>
+                                    
+                                    <div id="subscription-guide" class="guide-section">
+                                        <!-- Subscription Guide content goes here -->
+                                        <h4>Subscription Management Guide</h4>
+                                        <p>Learn how to manage your subscription, compare plans, and make the most of your RTI Consultant membership.</p>
+                                        
+                                        <!-- Additional content would go here -->
+                                    </div>
+                                    
+                                    <div id="account-guide" class="guide-section">
+                                        <!-- Account Guide content goes here -->
+                                        <h4>Account Settings Guide</h4>
+                                        <p>Manage your profile information, security settings, and notification preferences.</p>
+                                        
+                                        <!-- Additional content would go here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Us Tab -->
+                    <div id="contact-tab" class="help-tab-pane">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Contact Support</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="contact-options">
+                                    <div class="contact-option">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-details">
+                                            <h4>Email Support</h4>
+                                            <p>Our support team typically responds within 24 hours during business days.</p>
+                                            <a href="mailto:support@rticonsultant.rw" class="contact-link">support@rticonsultant.rw</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contact-option">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <div class="contact-details">
+                                            <h4>Phone Support</h4>
+                                            <p>Available Monday to Friday, 8:00 AM - 6:00 PM (CAT)</p>
+                                            <a href="tel:+250782345678" class="contact-link">+250 782 345 678</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contact-option">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <div class="contact-details">
+                                            <h4>Live Chat</h4>
+                                            <p>Connect with a support agent during business hours.</p>
+                                            <button class="start-chat-btn">Start Chat</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-form-container">
+                                    <h4>Send Us a Message</h4>
+                                    <form id="support-form" class="contact-form">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="support-name">Your Name <span class="required">*</span></label>
+                                                <input type="text" id="support-name" name="name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="support-email">Email Address <span class="required">*</span></label>
+                                                <input type="email" id="support-email" name="email" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="support-subject">Subject <span class="required">*</span></label>
+                                            <input type="text" id="support-subject" name="subject" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="support-category">Category <span class="required">*</span></label>
+                                            <select id="support-category" name="category" required>
+                                                <option value="">Select Category</option>
+                                                <option value="account">Account Issues</option>
+                                                <option value="billing">Billing & Subscription</option>
+                                                <option value="technical">Technical Issues</option>
+                                                <option value="feature">Feature Requests</option>
+                                                <option value="data">Data Questions</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="support-message">Message <span class="required">*</span></label>
+                                            <textarea id="support-message" name="message" rows="5" required></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="support-attachment">Attachments (Optional)</label>
+                                            <input type="file" id="support-attachment" name="attachment">
+                                            <p class="form-hint">You can attach screenshots or documents (Max size: 10MB)</p>
+                                        </div>
+                                        
+                                        <button type="submit" class="primary-button">Submit Request</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Tutorials Tab -->
+                    <div id="tutorials-tab" class="help-tab-pane">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>Video Tutorials</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="tutorial-categories">
+                                    <button class="tutorial-category active" data-category="all">All</button>
+                                    <button class="tutorial-category" data-category="getting-started">Getting Started</button>
+                                    <button class="tutorial-category" data-category="market-insights">Market Insights</button>
+                                    <button class="tutorial-category" data-category="regulatory">Regulatory</button>
+                                    <button class="tutorial-category" data-category="advanced">Advanced Features</button>
+                                </div>
+                                
+                                <div class="tutorials-grid">
+                                    <div class="tutorial-card" data-category="getting-started">
+                                        <div class="tutorial-thumbnail">
+                                            <img src="https://via.placeholder.com/320x180?text=Getting+Started" alt="Getting Started with RTI Consultant">
+                                            <div class="tutorial-duration">3:25</div>
+                                        </div>
+                                        <div class="tutorial-info">
+                                            <h4>Getting Started with RTI Consultant</h4>
+                                            <p>A quick overview of the platform and its key features.</p>
+                                            <button class="watch-tutorial-btn" data-tutorial="getting-started-video">
+                                                <i class="fas fa-play-circle"></i> Watch Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tutorial-card" data-category="market-insights">
+                                        <div class="tutorial-thumbnail">
+                                            <img src="https://via.placeholder.com/320x180?text=Market+Insights" alt="Using Market Insights">
+                                            <div class="tutorial-duration">5:47</div>
+                                        </div>
+                                        <div class="tutorial-info">
+                                            <h4>How to Use Market Insights</h4>
+                                            <p>Learn how to generate and interpret custom market insights for your business.</p>
+                                            <button class="watch-tutorial-btn" data-tutorial="market-insights-video">
+                                                <i class="fas fa-play-circle"></i> Watch Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tutorial-card" data-category="regulatory">
+                                        <div class="tutorial-thumbnail">
+                                            <img src="https://via.placeholder.com/320x180?text=Regulatory+Guidance" alt="Regulatory Guidance Tutorial">
+                                            <div class="tutorial-duration">4:32</div>
+                                        </div>
+                                        <div class="tutorial-info">
+                                            <h4>Understanding Regulatory Guidance</h4>
+                                            <p>How to navigate regulatory compliance and use the AI assistant.</p>
+                                            <button class="watch-tutorial-btn" data-tutorial="regulatory-video">
+                                                <i class="fas fa-play-circle"></i> Watch Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tutorial-card" data-category="advanced">
+                                        <div class="tutorial-thumbnail">
+                                            <img src="https://via.placeholder.com/320x180?text=Data+Export" alt="Data Export Tutorial">
+                                            <div class="tutorial-duration">2:18</div>
+                                        </div>
+                                        <div class="tutorial-info">
+                                            <h4>Exporting and Sharing Data</h4>
+                                            <p>How to export reports and share insights with your team.</p>
+                                            <button class="watch-tutorial-btn" data-tutorial="export-data-video">
+                                                <i class="fas fa-play-circle"></i> Watch Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tutorial-card" data-category="getting-started">
+                                        <div class="tutorial-thumbnail">
+                                            <img src="https://via.placeholder.com/320x180?text=Account+Management" alt="Account Management Tutorial">
+                                            <div class="tutorial-duration">3:52</div>
+                                        </div>
+                                        <div class="tutorial-info">
+                                            <h4>Managing Your Account</h4>
+                                            <p>Learn how to update your profile and manage subscription settings.</p>
+                                            <button class="watch-tutorial-btn" data-tutorial="account-video">
+                                                <i class="fas fa-play-circle"></i> Watch Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tutorial-card" data-category="advanced">
+                                        <div class="tutorial-thumbnail">
+                                            <img src="https://via.placeholder.com/320x180?text=Custom+Analysis" alt="Custom Analysis Tutorial">
+                                            <div class="tutorial-duration">6:14</div>
+                                        </div>
+                                        <div class="tutorial-info">
+                                            <h4>Creating Custom Market Analysis</h4>
+                                            <p>Advanced techniques for analyzing specific market segments.</p>
+                                            <button class="watch-tutorial-btn" data-tutorial="custom-analysis-video">
+                                                <i class="fas fa-play-circle"></i> Watch Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Immediately attach logout event listener
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoutButton = document.getElementById('logout-button');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', function() {
+                    // Call the logout function from dashboard.js
+                    logout();
+                });
+            }
+        });
+    </script>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Upgrade to Premium Plan</h2>
+            
+            <div class="payment-options">
+                <div class="billing-toggle">
+                    <span class="billing-option active" data-billing="monthly">Monthly</span>
+                    <label class="switch">
+                        <input type="checkbox" id="billing-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="billing-option" data-billing="annual">Annual <span class="discount-badge">Save 16.7%</span></span>
+                </div>
+                
+                <div class="payment-summary">
+                    <div class="summary-item">
+                        <span>Premium Plan</span>
+                        <span id="plan-price">50,000 RWF/month</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span id="total-price">50,000 RWF</span>
+                    </div>
+                </div>
+                
+                <div class="payment-methods">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-method-options">
+                        <div class="payment-method active" data-method="mobile-money">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile Money</span>
+                        </div>
+                        <div class="payment-method" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Card</span>
+                        </div>
+                        <div class="payment-method" data-method="bank">
+                            <i class="fas fa-university"></i>
+                            <span>Bank Transfer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method-form" id="mobile-money-form">
+                        <div class="form-group">
+                            <label for="phone-number">Phone Number</label>
+                            <input type="tel" id="phone-number" placeholder="e.g., 078XXXXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="provider">Provider</label>
+                            <select id="provider" required>
+                                <option value="mtn">MTN Mobile Money</option>
+                                <option value="airtel">Airtel Money</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method-form" id="card-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Expiry Date</label>
+                                <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="XXX" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method-form" id="bank-form" style="display: none;">
+                        <p>To pay via bank transfer, please use the following details:</p>
+                        <div class="bank-details">
+                            <p><strong>Bank:</strong> Bank of Kigali</p>
+                            <p><strong>Account Name:</strong> RTI Consultant Ltd</p>
+                            <p><strong>Account Number:</strong> 00012345678901</p>
+                            <p><strong>Reference:</strong> Your email address</p>
+                        </div>
+                        <p class="bank-note">After making the transfer, please email a copy of the transfer receipt to <a href="mailto:billing@rticonsultant.rw">billing@rticonsultant.rw</a> to expedite account activation.</p>
+                    </div>
+                </div>
+                
+                <button class="payment-button" id="complete-payment">Complete Payment</button>
+                <p class="payment-disclaimer">By clicking "Complete Payment", you agree to our <a href="#">Terms of Service</a> and authorize RTI Consultant to charge your selected payment method on a recurring basis. You can cancel anytime.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>You've successfully upgraded to the Premium Plan. Your account has been updated and you now have access to all premium features.</p>
+            <button class="success-button" id="goto-dashboard">Go to Dashboard</button>
+        </div>
+    </div>
+
+    <!-- Cancel Subscription Modal -->
+    <div id="cancel-modal" style="display: none;">
+        <div class="modal-header">
+            <h3>Cancel Your Subscription</h3>
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <p>We're sorry to see you go. Before you cancel, please let us know why you're leaving so we can improve our service.</p>
+            
+            <form id="cancel-form">
+                <div class="form-group">
+                    <label for="cancel-reason">Reason for cancellation <span class="required">*</span></label>
+                    <select id="cancel-reason" name="cancel-reason" required>
+                        <option value="">Select a reason</option>
+                        <option value="too-expensive">It's too expensive</option>
+                        <option value="not-using">I'm not using it enough</option>
+                        <option value="missing-features">Missing features I need</option>
+                        <option value="switching">Switching to another service</option>
+                        <option value="difficult">It's difficult to use</option>
+                        <option value="other">Other reason</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cancel-feedback">Additional feedback</label>
+                    <textarea id="cancel-feedback" name="cancel-feedback" placeholder="Please let us know how we could improve..."></textarea>
+                </div>
+                
+                <p>What will happen when you cancel:</p>
+                <ul class="modal-list">
+                    <li>Your subscription will remain active until the end of your current billing period.</li>
+                    <li>You will not be charged for the next billing cycle.</li>
+                    <li>After the current period ends, your account will revert to the Free plan.</li>
+                </ul>
+                
+                <div class="modal-buttons">
+                    <button type="button" class="secondary-btn cancel-close">Keep Subscription</button>
+                    <button type="submit" class="danger-btn">Confirm Cancellation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Video Tutorial Modal -->
+    <div id="tutorial-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="tutorial-title">Video Tutorial</h3>
+                <button class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="video-container">
+                    <div id="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <p>Video would play here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Message Success Modal -->
+    <div id="support-success-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Message Sent</h3>
+                <button class="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Thank you for reaching out!</h4>
+                    <p>Your support request has been submitted successfully. We'll get back to you within 24 hours via email.</p>
+                    <p>Your reference number: <strong id="reference-number">SR-12345</strong></p>
+                    <button class="primary-button modal-close-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update the script to connect the help & support button in the sidebar -->
+    <script>
+        // Connect help & support button when the document is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const helpButton = document.querySelector('.help-button');
+            
+            if (helpButton) {
+                helpButton.addEventListener('click', function() {
+                    navigateToSection('help-support-section');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

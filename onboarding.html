@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to RTI Consultant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="onboarding.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="onboarding-container">
+        <!-- Onboarding Header -->
+        <header class="onboarding-header">
+            <div class="logo-container">
+                <img src="https://via.placeholder.com/100/ffffff?text=RTI" alt="RTI Consultant Logo" class="logo">
+                <h1>RTI Consultant</h1>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="step-indicators">
+                    <div class="step active" data-step="1">1</div>
+                    <div class="step" data-step="2">2</div>
+                    <div class="step" data-step="3">3</div>
+                    <div class="step" data-step="4">4</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Onboarding Steps -->
+        <main class="onboarding-content">
+            <!-- Step 1: Welcome -->
+            <div class="onboarding-step active" id="step-1">
+                <div class="step-content welcome-content">
+                    <div class="welcome-text">
+                        <h2>Welcome to RTI Consultant!</h2>
+                        <p class="step-description">Rwanda's leading business intelligence platform that helps you make data-driven decisions and navigate the regulatory landscape.</p>
+                        
+                        <div class="step-actions welcome-actions">
+                            <button class="onboarding-button next-btn pulse-animation" data-next="2">Get Started</button>
+                        </div>
+                    </div>
+                    
+                    <div class="welcome-cards">
+                        <div class="welcome-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Market Insights</h3>
+                            <p>Access real-time data and analysis of Rwanda's business sectors</p>
+                        </div>
+                        
+                        <div class="welcome-card">
+                            <div class="card-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Regulatory Guidance</h3>
+                            <p>Navigate complex regulations with AI-powered recommendations</p>
+                        </div>
+                        
+                        <div class="welcome-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3>Interactive Dashboards</h3>
+                            <p>Visualize data to identify opportunities and trends</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Profile Setup -->
+            <div class="onboarding-step" id="step-2">
+                <div class="step-content">
+                    <h2>Tell Us About Yourself</h2>
+                    <p class="step-description">We'll use this information to personalize your experience.</p>
+                    
+                    <form id="profile-form" class="onboarding-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="first_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" name="last_name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Optional">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="industry">Industry</label>
+                                <select id="industry" name="industry" required>
+                                    <option value="">-- Select Industry --</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Agriculture">Agriculture</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Tourism">Tourism</option>
+                                    <option value="Energy">Energy</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="company-size">Company Size</label>
+                                <select id="company-size" name="company_size" required>
+                                    <option value="">-- Select Size --</option>
+                                    <option value="1-10">1-10 employees</option>
+                                    <option value="11-50">11-50 employees</option>
+                                    <option value="51-200">51-200 employees</option>
+                                    <option value="201-1000">201-1000 employees</option>
+                                    <option value="1000+">1000+ employees</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="onboarding-button back-btn" data-prev="1">Back</button>
+                    <button class="onboarding-button next-btn" data-next="3">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Interests -->
+            <div class="onboarding-step" id="step-3">
+                <div class="step-content">
+                    <h2>What Are You Interested In?</h2>
+                    <p class="step-description">Select the topics that are most relevant to your business needs.</p>
+                    
+                    <div class="interests-grid">
+                        <div class="interest-item">
+                            <input type="checkbox" id="market-research" name="interests" value="market-research">
+                            <label for="market-research">
+                                <div class="interest-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <span>Market Research</span>
+                            </label>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <input type="checkbox" id="regulatory-compliance" name="interests" value="regulatory-compliance">
+                            <label for="regulatory-compliance">
+                                <div class="interest-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <span>Regulatory Compliance</span>
+                            </label>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <input type="checkbox" id="investment-opportunities" name="interests" value="investment-opportunities">
+                            <label for="investment-opportunities">
+                                <div class="interest-icon">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <span>Investment Opportunities</span>
+                            </label>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <input type="checkbox" id="business-licensing" name="interests" value="business-licensing">
+                            <label for="business-licensing">
+                                <div class="interest-icon">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <span>Business Licensing</span>
+                            </label>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <input type="checkbox" id="tax-compliance" name="interests" value="tax-compliance">
+                            <label for="tax-compliance">
+                                <div class="interest-icon">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                </div>
+                                <span>Tax Compliance</span>
+                            </label>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <input type="checkbox" id="export-regulations" name="interests" value="export-regulations">
+                            <label for="export-regulations">
+                                <div class="interest-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <span>Export Regulations</span>
+                            </label>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <input type="checkbox" id="competitor-analysis" name="interests" value="competitor-analysis">
+                            <label for="competitor-analysis">
+                                <div class="interest-icon">
+                                    <i class="fas fa-chess"></i>
+                                </div>
+                                <span>Competitor Analysis</span>
+                            </label>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <input type="checkbox" id="sector-trends" name="interests" value="sector-trends">
+                            <label for="sector-trends">
+                                <div class="interest-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <span>Sector Trends</span>
+                            </label>
+                        </div>
+                        
+                        <div class="interest-item">
+                            <input type="checkbox" id="funding-opportunities" name="interests" value="funding-opportunities">
+                            <label for="funding-opportunities">
+                                <div class="interest-icon">
+                                    <i class="fas fa-piggy-bank"></i>
+                                </div>
+                                <span>Funding Opportunities</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="onboarding-button back-btn" data-prev="2">Back</button>
+                    <button class="onboarding-button next-btn" data-next="4">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Plan Selection -->
+            <div class="onboarding-step" id="step-4">
+                <div class="step-content">
+                    <h2>Choose Your Plan</h2>
+                    <p class="step-description">Select the plan that best fits your business needs.</p>
+                    
+                    <div class="onboarding-plans">
+                        <div class="plan-option">
+                            <input type="radio" id="free-plan" name="plan" value="free" checked>
+                            <label for="free-plan" class="plan-label">
+                                <div class="plan-header">
+                                    <h3>Free Plan</h3>
+                                    <p class="plan-price">0 RWF<span>/month</span></p>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Basic market insights</li>
+                                        <li><i class="fas fa-check"></i> Limited regulatory guidance</li>
+                                        <li><i class="fas fa-check"></i> Rwanda tech ecosystem dashboard</li>
+                                        <li><i class="fas fa-check"></i> 3 report exports per month</li>
+                                    </ul>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="plan-option featured">
+                            <div class="plan-badge">Recommended</div>
+                            <input type="radio" id="premium-plan" name="plan" value="premium">
+                            <label for="premium-plan" class="plan-label">
+                                <div class="plan-header">
+                                    <h3>Premium Plan</h3>
+                                    <p class="plan-price">50,000 RWF<span>/month</span></p>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Everything in Free plan, plus:</li>
+                                        <li><i class="fas fa-check"></i> Advanced market insights</li>
+                                        <li><i class="fas fa-check"></i> Comprehensive regulatory guidance</li>
+                                        <li><i class="fas fa-check"></i> AI-powered recommendations</li>
+                                        <li><i class="fas fa-check"></i> Unlimited report exports</li>
+                                    </ul>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="plan-option enterprise">
+                            <div class="plan-badge">Enterprise</div>
+                            <input type="radio" id="enterprise-plan" name="plan" value="enterprise">
+                            <label for="enterprise-plan" class="plan-label">
+                                <div class="plan-header">
+                                    <h3>Enterprise Plan</h3>
+                                    <p class="plan-price">Contact Us<span></span></p>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Everything in Premium plan, plus:</li>
+                                        <li><i class="fas fa-check"></i> Custom data analytics</li>
+                                        <li><i class="fas fa-check"></i> Dedicated regulatory consultant</li>
+                                        <li><i class="fas fa-check"></i> API access for integrations</li>
+                                        <li><i class="fas fa-check"></i> Priority customer support</li>
+                                    </ul>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-actions">
+                    <button class="onboarding-button back-btn" data-prev="3">Back</button>
+                    <button class="onboarding-button primary-btn" id="complete-onboarding">Complete Setup</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Welcome Animation -->
+    <div id="welcome-animation" class="welcome-animation">
+        <div class="animation-content">
+            <div class="animation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Setup Complete!</h2>
+            <p>Welcome to RTI Consultant. Your dashboard is ready.</p>
+        </div>
+    </div>
+    
+    <!-- Tour Modal for after onboarding -->
+    <div id="tour-modal" class="modal">
+        <div class="modal-content tour-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Would you like a quick tour?</h2>
+            <p>Let us show you around and help you get the most out of RTI Consultant.</p>
+            
+            <div class="tour-buttons">
+                <button id="start-tour" class="tour-btn primary-btn">Yes, show me around</button>
+                <button id="skip-tour" class="tour-btn secondary-btn">No, thanks</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tour Tooltips -->
+    <div class="tour-tooltip" id="dashboard-tooltip">
+        <div class="tooltip-content">
+            <h3>Dashboard</h3>
+            <p>Get a real-time overview of Rwanda's tech ecosystem with interactive visualizations and key metrics.</p>
+            <div class="tooltip-nav">
+                <span class="tooltip-counter">1/5</span>
+                <button class="tooltip-next">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="tooltip-arrow"></div>
+    </div>
+    
+    <div class="tour-tooltip" id="insights-tooltip">
+        <div class="tooltip-content">
+            <h3>Market Insights</h3>
+            <p>Access customized market analysis and data-driven insights for your industry.</p>
+            <div class="tooltip-nav">
+                <button class="tooltip-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                <span class="tooltip-counter">2/5</span>
+                <button class="tooltip-next">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="tooltip-arrow"></div>
+    </div>
+    
+    <div class="tour-tooltip" id="regulatory-tooltip">
+        <div class="tooltip-content">
+            <h3>Regulatory Guidance</h3>
+            <p>Get personalized regulatory roadmaps and compliance guidance for your business.</p>
+            <div class="tooltip-nav">
+                <button class="tooltip-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                <span class="tooltip-counter">3/5</span>
+                <button class="tooltip-next">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="tooltip-arrow"></div>
+    </div>
+    
+    <div class="tour-tooltip" id="subscription-tooltip">
+        <div class="tooltip-content">
+            <h3>Subscription Management</h3>
+            <p>Manage your subscription plan and payment methods here.</p>
+            <div class="tooltip-nav">
+                <button class="tooltip-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                <span class="tooltip-counter">4/5</span>
+                <button class="tooltip-next">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="tooltip-arrow"></div>
+    </div>
+    
+    <div class="tour-tooltip" id="account-tooltip">
+        <div class="tooltip-content">
+            <h3>My Account</h3>
+            <p>Update your profile, manage notification preferences, and adjust security settings.</p>
+            <div class="tooltip-nav">
+                <button class="tooltip-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                <span class="tooltip-counter">5/5</span>
+                <button class="tooltip-finish">Finish Tour</button>
+            </div>
+        </div>
+        <div class="tooltip-arrow"></div>
+    </div>
+
+    <script src="onboarding.js"></script>
+</body>
+</html>
