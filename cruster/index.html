@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rwanda Tech Ecosystem Dashboard</title>
+  <!-- External Libraries -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-gray-50">
+  <header class="bg-gradient-to-r from-purple-800 to-indigo-800 text-white shadow-md">
+    <div class="container mx-auto px-4 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div>
+          <h1 class="text-3xl font-bold">Rwanda Tech Ecosystem (2015-2025)</h1>
+          <p class="text-indigo-200 mt-1">Interactive Dashboard & Forecasting Tool</p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <button id="connect-sheet-btn" class="bg-white text-indigo-800 px-4 py-2 rounded-lg font-medium hover:bg-indigo-100 transition">
+            Connect Google Sheet
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <!-- Connection Status Banner -->
+    <div id="connection-banner" class="hidden mb-6 p-4 rounded-lg text-center">
+      <!-- Will be filled dynamically -->
+    </div>
+
+    <!-- Filters Section -->
+    <section class="mb-8 bg-white rounded-lg shadow-md p-4">
+      <div class="flex justify-between items-center">
+        <h2 class="text-xl font-semibold text-gray-800">Filters</h2>
+        <button id="toggle-filters" class="text-indigo-600 hover:text-indigo-800">
+          <span>Show Filters</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="filter-container" class="filter-container mt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Industry Cluster Filter -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Industry Cluster</label>
+            <select id="industry-filter" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="all">All Clusters</option>
+              <option value="FinTech">FinTech</option>
+              <option value="AgriTech">AgriTech</option>
+              <option value="HealthTech">HealthTech</option>
+              <option value="EdTech">EdTech</option>
+              <option value="CleanTech">CleanTech</option>
+              <option value="TransportTech">TransportTech</option>
+            </select>
+          </div>
+
+          <!-- Revenue Range Filter -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Revenue Range</label>
+            <select id="revenue-filter" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="all">All Ranges</option>
+              <option value="0-50000">$0 - $50,000</option>
+              <option value="50000-250000">$50,000 - $250,000</option>
+              <option value="250000-1000000">$250,000 - $1M</option>
+              <option value="1000000-plus">$1M+</option>
+            </select>
+          </div>
+
+          <!-- Team Size Filter -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Team Size</label>
+            <select id="team-filter" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="all">All Sizes</option>
+              <option value="1-5">1-5 employees</option>
+              <option value="6-20">6-20 employees</option>
+              <option value="21-50">21-50 employees</option>
+              <option value="51-plus">51+ employees</option>
+            </select>
+          </div>
+
+          <!-- Impact Focus Filter -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Impact Focus</label>
+            <select id="impact-filter" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="all">All Impact Areas</option>
+              <option value="Economic">Economic</option>
+              <option value="Social">Social</option>
+              <option value="Environmental">Environmental</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-4 flex justify-end">
+          <button id="apply-filters" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
+            Apply Filters
+          </button>
+          <button id="reset-filters" class="ml-2 border border-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-100 transition">
+            Reset
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="mb-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- KPI Cards -->
+        <div class="bg-white rounded-lg shadow-md p-4">
+          <h3 class="text-sm font-medium text-gray-500">Total Companies</h3>
+          <p id="total-companies" class="text-3xl font-bold text-gray-800 mt-2">--</p>
+          <div class="text-sm text-gray-500 mt-2">
+            <span id="total-companies-change" class="font-medium">--</span> from last year
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4">
+          <h3 class="text-sm font-medium text-gray-500">Average Team Size</h3>
+          <p id="avg-team-size" class="text-3xl font-bold text-gray-800 mt-2">--</p>
+          <div class="text-sm text-gray-500 mt-2">
+            <span id="avg-team-size-change" class="font-medium">--</span> from last year
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4">
+          <h3 class="text-sm font-medium text-gray-500">Total Revenue (Est.)</h3>
+          <p id="total-revenue" class="text-3xl font-bold text-gray-800 mt-2">--</p>
+          <div class="text-sm text-gray-500 mt-2">
+            <span id="total-revenue-change" class="font-medium">--</span> from last year
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4">
+          <h3 class="text-sm font-medium text-gray-500">Fastest Growing Sector</h3>
+          <p id="fastest-sector" class="text-3xl font-bold text-gray-800 mt-2">--</p>
+          <div class="text-sm text-gray-500 mt-2">
+            <span id="fastest-sector-growth" class="font-medium">--</span> growth rate
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      <!-- Cluster Visualization -->
+      <div class="bg-white rounded-lg shadow-md p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Rwanda's Tech Industry Clusters</h3>
+        <div id="cluster-chart" class="chart-container cluster-chart">
+          <div class="flex justify-center items-center h-full">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue Distribution -->
+      <div class="bg-white rounded-lg shadow-md p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Revenue Distribution</h3>
+        <div id="revenue-chart" class="chart-container">
+          <div class="flex justify-center items-center h-full">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Size Comparison -->
+      <div class="bg-white rounded-lg shadow-md p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Team Size Comparison</h3>
+        <div id="team-chart" class="chart-container">
+          <div class="flex justify-center items-center h-full">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impact Assessment -->
+      <div class="bg-white rounded-lg shadow-md p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Impact Assessment</h3>
+        <div id="impact-chart" class="chart-container">
+          <div class="flex justify-center items-center h-full">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forecasting Section -->
+    <section class="bg-white rounded-lg shadow-md p-4 mb-8">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold text-gray-800">Forecasting & Trends</h2>
+        <div>
+          <label class="mr-2 text-sm text-gray-700">Forecast Period:</label>
+          <select id="forecast-period" class="border border-gray-300 rounded-md py-1 px-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="1">1 Year</option>
+            <option value="2" selected>2 Years</option>
+            <option value="3">3 Years</option>
+            <option value="5">5 Years</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="forecast-chart" class="chart-container">
+        <div class="flex justify-center items-center h-full">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Table Section -->
+    <section class="bg-white rounded-lg shadow-md p-4 mb-8">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold text-gray-800">Company Database</h2>
+        <div>
+          <button id="export-data" class="text-indigo-600 hover:text-indigo-800 mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+            Export
+          </button>
+          <input type="text" id="table-search" placeholder="Search companies..." class="border border-gray-300 rounded-md py-1 px-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Industry</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Team Size</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Revenue</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Impact Focus</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Founded</th>
+            </tr>
+          </thead>
+          <tbody id="company-table-body" class="bg-white divide-y divide-gray-200">
+            <tr>
+              <td colspan="6" class="px-6 py-4 text-center text-sm text-gray-500">
+                Connect to Google Sheet to load data
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4 flex justify-between items-center">
+        <div class="text-sm text-gray-700">
+          Showing <span id="table-showing">0</span> of <span id="table-total">0</span> companies
+        </div>
+        <div class="flex">
+          <button id="prev-page" class="border border-gray-300 rounded-l-md px-3 py-1 disabled:opacity-50">
+            Previous
+          </button>
+          <button id="next-page" class="border border-gray-300 rounded-r-md px-3 py-1 disabled:opacity-50">
+            Next
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collaboration Section -->
+    <section class="bg-white rounded-lg shadow-md p-4 mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Collaboration</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-lg font-medium text-gray-700 mb-2">Suggest Addition</h3>
+          <form id="suggestion-form">
+            <div class="mb-3">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+              <input type="text" name="company" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <div class="mb-3">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Industry</label>
+              <select name="industry" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                <option value="">Select Industry</option>
+                <option value="FinTech">FinTech</option>
+                <option value="AgriTech">AgriTech</option>
+                <option value="HealthTech">HealthTech</option>
+                <option value="EdTech">EdTech</option>
+                <option value="CleanTech">CleanTech</option>
+                <option value="TransportTech">TransportTech</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Additional Information</label>
+              <textarea name="info" rows="3" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Your Email (optional)</label>
+              <input type="email" name="email" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
+              Submit Suggestion
+            </button>
+          </form>
+        </div>
+        <div>
+          <h3 class="text-lg font-medium text-gray-700 mb-2">Contributors</h3>
+          <div class="mb-4 bg-gray-50 p-4 rounded-lg">
+            <p class="text-gray-600 text-sm">
+              This dashboard is based on comprehensive research of Rwanda's tech ecosystem from 2015-2025, providing accurate, up-to-date information on the country's emerging startups across multiple sectors.
+            </p>
+          </div>
+          <h4 class="font-medium text-gray-700 mb-2">Key Data Sources</h4>
+          <ul id="contributors-list" class="text-gray-600">
+            <li class="mb-1">Rwanda Tech Ecosystem Research Report (2015-2025)</li>
+            <li class="mb-1">StartupBlink Rwanda Rankings (2025)</li>
+            <li class="mb-1">Company websites and public disclosures</li>
+            <li class="mb-1">Investor announcements and funding reports</li>
+          </ul>
+          <div class="mt-4">
+            <h4 class="font-medium text-gray-700 mb-2">Version Information</h4>
+            <p class="text-sm text-gray-600">
+              <strong>Current Version:</strong> 1.0.0 <br>
+              <strong>Last Updated:</strong> <span id="last-updated">March 15, 2025</span> <br>
+              <strong>Data Source:</strong> <span id="data-source">Rwanda Tech Ecosystem Research Report (2015-2025)</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300">
+    <div class="container mx-auto px-4 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h3 class="text-xl font-bold text-white">Rwanda Tech Ecosystem Dashboard</h3>
+          <p class="text-sm">A comprehensive visualization of Rwanda's technology landscape</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white">Documentation</a>
+          <a href="#" class="text-gray-300 hover:text-white">GitHub</a>
+          <a href="#" class="text-gray-300 hover:text-white">Report Issue</a>
+        </div>
+      </div>
+      <div class="mt-6 border-t border-gray-700 pt-6 text-sm text-center text-gray-400">
+        &copy; 2025 Rwanda Tech Ecosystem Project. Data based on comprehensive research of Rwanda's tech landscape from 2015-2025. Provided for informational purposes only.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal for Sheet Connection -->
+  <div id="sheet-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full">
+      <h3 class="text-xl font-bold text-gray-800 mb-4">Connect to Google Sheet</h3>
+      <p class="text-gray-600 mb-4">
+        Enter the URL of your Google Sheet containing Rwanda tech ecosystem data. The sheet must be publicly accessible or shared with the appropriate permissions.
+      </p>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Google Sheet URL</label>
+        <input type="text" id="sheet-url" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="https://docs.google.com/spreadsheets/d/..." />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Sheet Name (optional)</label>
+        <input type="text" id="sheet-name" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Sheet1" />
+        <p class="text-xs text-gray-500 mt-1">If left blank, the first sheet will be used</p>
+      </div>
+      <div class="flex justify-end">
+        <button id="cancel-connect" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-100 transition mr-2">
+          Cancel
+        </button>
+        <button id="confirm-connect" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
+          Connect
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
